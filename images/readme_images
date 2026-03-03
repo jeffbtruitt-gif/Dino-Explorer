@@ -1,4 +1,14 @@
- Image SpecificationsCard Images (images/cards/)
+Prompt for getting card images
+
+Create a [trex] real life image 
+with these specs: 
+Size: 600 × 400px (landscape) 
+Format: JPG 
+File size: Keep under 300KB for fast loading W
+hat it shows: The full dinosaur body, ideally with some background/habitat. Think "hero shot" — the whole animal visible
+
+
+Image SpecificationsCard Images (images/cards/)
 
 Size: 600 × 400px (landscape)
 Format: JPG or PNG
@@ -21,11 +31,14 @@ Midjourney / DALL-E / Adobe Firefly — prompt: "photorealistic Tyrannosaurus Re
 Prehistoric Planet press images (Google search)
 Natural History Museum image library
 📁 How to Add to GitHub
+
+
 Go to your repo at github.com/jeffbtruitt-gif/Dino-Explorer
 Click into images/cards/
 Click Add file → Upload files
 Drop in all 6 card images (named exactly as shown below)
 Click Commit changes
+
 Go back, click into images/scenes/
 Repeat — upload all 6 scene images
 Commit
