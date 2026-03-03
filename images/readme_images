@@ -1,0 +1,45 @@
+ Image SpecificationsCard Images (images/cards/)
+
+Size: 600 × 400px (landscape)
+Format: JPG or PNG
+File size: Keep under 300KB for fast loading
+What it shows: The full dinosaur body, ideally with some background/habitat. Think "hero shot" — the whole animal visible.
+Scene Images (images/scenes/)
+
+Size: 900 × 600px (landscape works best, portrait is fine too)
+Format: JPG or PNG
+File size: Keep under 500KB
+What it shows: Can be more dramatic/close-up. This is the big feature image when you click into a dinosaur. Environment/mood matters here.
+🖼️ Good Free Sources for ImagesWikimedia Commons (free, high quality scientific art)
+
+Go to commons.wikimedia.org
+Search: "Tyrannosaurus life restoration", "Triceratops reconstruction", etc.
+Filter by image, download the largest version, resize to spec
+Other options:
+
+Midjourney / DALL-E / Adobe Firefly — prompt: "photorealistic Tyrannosaurus Rex, Cretaceous swamp, National Geographic wildlife photography, wide shot showing full body, dramatic lighting"
+Prehistoric Planet press images (Google search)
+Natural History Museum image library
+📁 How to Add to GitHub
+Go to your repo at github.com/jeffbtruitt-gif/Dino-Explorer
+Click into images/cards/
+Click Add file → Upload files
+Drop in all 6 card images (named exactly as shown below)
+Click Commit changes
+Go back, click into images/scenes/
+Repeat — upload all 6 scene images
+Commit
+File names must match exactly (lowercase, no spaces):
+images/cards/trex.jpg
+images/cards/triceratops.jpg
+images/cards/brachiosaurus.jpg
+images/cards/velociraptor.jpg
+images/cards/stegosaurus.jpg
+images/cards/pteranodon.jpg
+
+images/scenes/trex.jpg
+images/scenes/triceratops.jpg
+images/scenes/brachiosaurus.jpg
+images/scenes/velociraptor.jpg
+images/scenes/stegosaurus.jpg
+images/scenes/pteranodon.jpg
