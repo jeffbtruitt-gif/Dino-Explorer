@@ -3,7 +3,7 @@ Prompt for getting card images
 Create a [trex] real life image 
 with these specs: 
 Size: 600 × 400px (landscape) 
-Format: JPG 
+File Type+: JPG 
 File size: Keep under 300KB for fast loading W
 hat it shows: The full dinosaur body, ideally with some background/habitat. Think "hero shot" — the whole animal visible
 
@@ -12,8 +12,8 @@ Image SpecificationsCard Images (images/cards/)
 
 Create a [trex] real life image 
 Size: 600 × 400px (landscape)
-Format: JPG
-File size: Keep under 300KB for fast loading
+File Type: JPG
+File size: Keep under 500KB for fast loading
 What it shows: The full dinosaur body, ideally with some background/habitat. Think "hero shot" — the whole animal visible.
 Scene Images (images/scenes/)
 
