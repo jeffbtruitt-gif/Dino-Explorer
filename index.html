@@ -111,6 +111,8 @@
   .skeleton-viewer h3{font-family:'Orbitron',sans-serif;font-size:0.78rem;color:#50dc64;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;text-align:center;}
   .skeleton-svg-wrap{display:flex;justify-content:center;align-items:center;min-height:300px;}
   .skeleton-svg-wrap svg{max-width:100%;height:auto;filter:drop-shadow(0 0 12px rgba(80,220,100,0.25));}
+  .skeleton-img{width:100%;border-radius:12px;object-fit:contain;max-height:400px;display:block;}
+  .skeleton-img-fallback{display:flex;align-items:center;justify-content:center;min-height:300px;}
   .skeleton-scale-bar{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:16px;}
   .scale-line{height:3px;background:linear-gradient(90deg,#50dc64,#a0ff80);border-radius:2px;}
   .scale-label{font-size:0.68rem;color:#50dc64;letter-spacing:1px;}
@@ -265,6 +267,7 @@
 <script>
 function cardImg(id){return `images/cards/${id}.jpg`;}
 function sceneImg(id){return `images/scenes/${id}.jpg`;}
+function skelImg(id){return `images/skeletons/${id}.jpg`;}
 const FALLBACK_EMOJI={trex:'🦖',triceratops:'🦕',brachiosaurus:'🦕',velociraptor:'🦖',stegosaurus:'🦕',pteranodon:'🦅'};
 
 /* =====================================================================
@@ -1070,7 +1073,10 @@ function showDetail(id){
   // Skeleton tab
   const sk=SKELETON_DATA[d.id];
   if(sk){
-    document.getElementById('skeleton-svg-wrap').innerHTML=SKELETONS[d.id]?SKELETONS[d.id](d.accentColor):'';
+    document.getElementById('skeleton-svg-wrap').innerHTML=`
+      <img class="skeleton-img" src="${skelImg(d.id)}" alt="${d.fullName} skeleton"
+           onerror="this.parentNode.innerHTML='<div class=skeleton-img-fallback>${SKELETONS[d.id]?SKELETONS[d.id](d.accentColor):'<span style=font-size:4rem>🦴</span>'}</div>'">
+    `;
     document.getElementById('skeleton-scale-bar').innerHTML=`
       <div class="scale-line" style="width:${sk.scalePx}px"></div>
       <span class="scale-label">${sk.scaleM}</span>`;
