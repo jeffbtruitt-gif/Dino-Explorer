@@ -9,30 +9,21 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:#0a0a0f;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;min-height:100vh;}
   body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 50%,#0d2b1a 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,#1a0d2b 0%,transparent 60%),radial-gradient(ellipse at 50% 80%,#0d1a2b 0%,transparent 60%);z-index:0;pointer-events:none;}
-
   header{position:relative;z-index:10;text-align:center;padding:28px 20px 18px;border-bottom:1px solid rgba(80,220,100,0.2);}
   header h1{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,#50dc64,#a0ff80,#50dc64);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:4px;filter:drop-shadow(0 0 20px #50dc6455);}
   header p{color:#7ab87a;margin-top:6px;font-size:0.95rem;letter-spacing:3px;text-transform:uppercase;}
-
   .page{display:none;position:relative;z-index:5;}
   .page.active{display:block;}
   #grid-view{display:none;position:relative;z-index:5;}
   #grid-view.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:36px;max-width:1400px;margin:0 auto;}
-
-  /* ── CARDS ── */
   .dino-card{background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01));border:1px solid rgba(80,220,100,0.2);border-radius:20px;overflow:hidden;cursor:pointer;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;backdrop-filter:blur(10px);}
   .dino-card:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(80,220,100,0.6);box-shadow:0 20px 60px rgba(80,220,100,0.2);}
-
-  /* Card image area */
   .card-img-wrap{height:220px;position:relative;overflow:hidden;background:#0d1a0d;}
   .card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
   .dino-card:hover .card-img-wrap img{transform:scale(1.07);}
   .card-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,#0a0a0f,transparent);pointer-events:none;}
-
-  /* Fallback if image missing */
   .card-img-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:4rem;background:radial-gradient(ellipse at 50% 60%,var(--accent)20,#0a0a10 70%);}
   .card-img-fallback span{font-size:0.75rem;color:#50dc6480;letter-spacing:2px;text-transform:uppercase;}
-
   .card-period-chip{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.75);border:1px solid rgba(80,220,100,0.4);border-radius:20px;padding:3px 10px;font-size:0.68rem;color:#80ff90;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(8px);z-index:5;}
   .card-info{padding:18px 20px;}
   .card-info h2{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:#80ff90;margin-bottom:3px;}
@@ -41,41 +32,26 @@
   .diet-badge{display:inline-block;margin-top:10px;padding:3px 13px;border-radius:20px;font-size:0.73rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
   .carnivore{background:rgba(255,60,60,0.18);color:#ff8080;border:1px solid rgba(255,60,60,0.4);}
   .herbivore{background:rgba(60,220,80,0.18);color:#80ff90;border:1px solid rgba(60,220,80,0.4);}
-
-  /* ── PAGE HEADER ── */
   .page-header{display:flex;align-items:center;gap:20px;padding:24px 36px 18px;border-bottom:1px solid rgba(80,220,100,0.15);flex-wrap:wrap;}
   .back-btn{background:rgba(80,220,100,0.1);border:1px solid rgba(80,220,100,0.4);color:#80ff90;padding:9px 20px;border-radius:12px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;white-space:nowrap;}
   .back-btn:hover{background:rgba(80,220,100,0.25);box-shadow:0 0 20px rgba(80,220,100,0.3);}
   .ph-text h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.4rem);background:linear-gradient(135deg,#50dc64,#a0ff80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
   .ph-text p{color:#60a060;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
-
-  /* ── TABS ── */
-  .tab-bar{display:flex;padding:0 36px;border-bottom:1px solid rgba(80,220,100,0.1);background:rgba(0,0,0,0.2);}
-  .tab-btn{padding:14px 28px;font-family:'Orbitron',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:#507050;border:none;background:transparent;border-bottom:3px solid transparent;transition:all 0.3s;}
+  .tab-bar{display:flex;padding:0 36px;border-bottom:1px solid rgba(80,220,100,0.1);background:rgba(0,0,0,0.2);overflow-x:auto;}
+  .tab-btn{padding:14px 24px;font-family:'Orbitron',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:#507050;border:none;background:transparent;border-bottom:3px solid transparent;transition:all 0.3s;white-space:nowrap;}
   .tab-btn:hover{color:#80ff90;}
   .tab-btn.active{color:#80ff90;border-bottom-color:#50dc64;}
   .tab-content{display:none;}
   .tab-content.active{display:block;}
-
-  /* ── DETAIL LAYOUT ── */
   .detail-body{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:32px 36px;max-width:1400px;margin:0 auto;}
-  @media(max-width:860px){.detail-body{grid-template-columns:1fr;}.page-header,.tab-bar,.detail-body,.videos-body,.compare-body,.tl-view-body{padding-left:18px;padding-right:18px;}}
-
-  /* ── SCENE ── */
+  @media(max-width:860px){.detail-body{grid-template-columns:1fr;}.page-header,.tab-bar,.detail-body,.videos-body,.compare-body,.tl-view-body,.skeleton-body{padding-left:18px;padding-right:18px;}}
   .dino-scene{position:relative;border:1px solid rgba(80,220,100,0.2);border-radius:20px;overflow:hidden;min-height:480px;}
-
-  /* Scene image */
   .scene-img{width:100%;height:100%;min-height:480px;object-fit:cover;display:block;filter:brightness(0.88) saturate(1.1);}
   .scene-img-wrap{position:relative;width:100%;height:100%;min-height:480px;}
   .scene-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.1) 50%,transparent 100%);pointer-events:none;}
-
-  /* Fallback if scene image missing */
   .scene-fallback{width:100%;min-height:480px;display:flex;align-items:center;justify-content:center;font-size:8rem;background:radial-gradient(ellipse at 50% 60%,var(--accent)25,#0a0a10 70%);}
-
   .click-hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:0.68rem;color:rgba(80,220,100,0.7);text-transform:uppercase;letter-spacing:2px;z-index:8;white-space:nowrap;animation:fud 2s ease-in-out infinite;}
   @keyframes fud{0%,100%{opacity:0.4}50%{opacity:1}}
-
-  /* ── HOTSPOTS ── */
   .hotspot{position:absolute;width:34px;height:34px;border-radius:50%;background:rgba(80,220,100,0.15);border:2px solid #50dc64;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;font-size:0.8rem;transition:all 0.3s;animation:hp 2.5s ease-in-out infinite;}
   @keyframes hp{0%,100%{box-shadow:0 0 0 0 rgba(80,220,100,0.5)}50%{box-shadow:0 0 0 10px rgba(80,220,100,0)}}
   .hotspot:hover,.hotspot.active{background:rgba(80,220,100,0.45);transform:scale(1.3) translate(-12%,-12%);animation:none;box-shadow:0 0 20px rgba(80,220,100,0.7);}
@@ -84,8 +60,6 @@
   .fact-popup h4{font-family:'Orbitron',sans-serif;font-size:0.72rem;color:#50dc64;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;}
   .fact-popup p{font-size:0.83rem;color:#b0c0b0;line-height:1.5;}
   .fact-popup .fp-icon{font-size:1.3rem;margin-bottom:4px;display:block;}
-
-  /* ── DETAIL PANEL ── */
   .detail-panel{display:flex;flex-direction:column;gap:16px;}
   .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .stat-box{background:rgba(255,255,255,0.03);border:1px solid rgba(80,220,100,0.15);border-radius:14px;padding:13px;transition:all 0.3s;cursor:pointer;position:relative;}
@@ -128,6 +102,29 @@
   .tag-fossil{background:rgba(200,100,80,0.15);color:#ffaa90;border:1px solid rgba(200,100,80,0.3);}
   .video-info h3{font-family:'Orbitron',sans-serif;font-size:0.82rem;color:#c0f0c0;margin-bottom:6px;line-height:1.4;}
   .video-info p{font-size:0.82rem;color:#7a9a7a;line-height:1.45;}
+
+  /* ── SKELETON TAB ── */
+  .skeleton-body{padding:32px 36px;max-width:1300px;margin:0 auto;}
+  .skeleton-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+  @media(max-width:860px){.skeleton-layout{grid-template-columns:1fr;}}
+  .skeleton-viewer{background:rgba(255,255,255,0.02);border:1px solid rgba(80,220,100,0.2);border-radius:20px;padding:28px;position:relative;}
+  .skeleton-viewer h3{font-family:'Orbitron',sans-serif;font-size:0.78rem;color:#50dc64;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;text-align:center;}
+  .skeleton-svg-wrap{display:flex;justify-content:center;align-items:center;min-height:300px;}
+  .skeleton-svg-wrap svg{max-width:100%;height:auto;filter:drop-shadow(0 0 12px rgba(80,220,100,0.25));}
+  .skeleton-scale-bar{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:16px;}
+  .scale-line{height:3px;background:linear-gradient(90deg,#50dc64,#a0ff80);border-radius:2px;}
+  .scale-label{font-size:0.68rem;color:#50dc64;letter-spacing:1px;}
+  .skeleton-facts{display:flex;flex-direction:column;gap:14px;}
+  .skeleton-facts h3{font-family:'Orbitron',sans-serif;font-size:0.78rem;color:#50dc64;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .skel-fact{background:rgba(255,255,255,0.03);border:1px solid rgba(80,220,100,0.12);border-radius:14px;padding:14px 16px;transition:all 0.3s;}
+  .skel-fact:hover{background:rgba(80,220,100,0.06);border-color:rgba(80,220,100,0.35);transform:translateX(4px);}
+  .skel-fact-head{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+  .skel-fact-icon{font-size:1.1rem;}
+  .skel-fact-title{font-family:'Orbitron',sans-serif;font-size:0.72rem;color:#80ff90;letter-spacing:1px;text-transform:uppercase;}
+  .skel-fact p{font-size:0.85rem;color:#8a9a8a;line-height:1.55;}
+  .bone-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(80,220,100,0.1);}
+  .bone-leg-item{display:flex;align-items:center;gap:6px;font-size:0.7rem;color:#7a9a7a;}
+  .bone-leg-dot{width:10px;height:10px;border-radius:50%;}
 
   /* ── COMPARE ── */
   .compare-body{padding:28px 36px;max-width:980px;margin:0 auto;}
@@ -191,16 +188,12 @@
   </div>
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('info',this)">🦴 Info & Facts</button>
+    <button class="tab-btn" onclick="switchTab('skeleton',this)">🩻 Skeleton</button>
     <button class="tab-btn" onclick="switchTab('videos',this)">🎬 Videos</button>
   </div>
   <div id="tab-info" class="tab-content active">
     <div class="detail-body">
       <div class="dino-scene" id="dino-scene">
-        <!-- =====================================================
-             SCENE IMAGE
-             The image at  images/scenes/{id}.jpg  loads here.
-             Hotspot buttons are placed on top of this image.
-             ===================================================== -->
         <div class="scene-img-wrap" id="scene-img-wrap"></div>
         <div class="click-hint">🟢 Click the glowing hotspots · Click stats to compare</div>
       </div>
@@ -215,6 +208,21 @@
       </div>
     </div>
   </div>
+
+  <div id="tab-skeleton" class="tab-content">
+    <div class="skeleton-body">
+      <div class="skeleton-layout">
+        <div class="skeleton-viewer">
+          <h3>🩻 Skeletal Anatomy</h3>
+          <div class="skeleton-svg-wrap" id="skeleton-svg-wrap"></div>
+          <div class="skeleton-scale-bar" id="skeleton-scale-bar"></div>
+          <div class="bone-legend" id="bone-legend"></div>
+        </div>
+        <div class="skeleton-facts" id="skeleton-facts"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="tab-videos" class="tab-content">
     <div class="videos-body">
       <p class="videos-intro" id="videos-intro"></p>
@@ -255,40 +263,520 @@
 </div>
 
 <script>
-/* =============================================================
-   IMAGE PATHS
-   
-   All image references live here in one place.
-   If you rename your files or use a different extension,
-   just change these two functions and nothing else breaks.
+function cardImg(id){return `images/cards/${id}.jpg`;}
+function sceneImg(id){return `images/scenes/${id}.jpg`;}
+const FALLBACK_EMOJI={trex:'🦖',triceratops:'🦕',brachiosaurus:'🦕',velociraptor:'🦖',stegosaurus:'🦕',pteranodon:'🦅'};
 
-   Card images   → shown on the main grid  (600×400px recommended)
-   Scene images  → shown on the detail page (900×600px recommended)
+/* =====================================================================
+   SKELETON SVG DEFINITIONS
+   Each entry returns an SVG string. Colors use the dino's accent.
+   ===================================================================== */
+const SKELETONS = {
 
-   Supported extensions: .jpg  .jpeg  .png  .webp
-   ============================================================= */
+  trex: (c) => `<svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" width="520">
+    <!-- Ground shadow -->
+    <ellipse cx="260" cy="268" rx="180" ry="8" fill="${c}15"/>
+    <!-- Tail vertebrae -->
+    <g stroke="${c}" stroke-width="2" fill="none" opacity="0.7">
+      <ellipse cx="460" cy="148" rx="14" ry="8"/><ellipse cx="435" cy="143" rx="13" ry="7"/>
+      <ellipse cx="411" cy="138" rx="12" ry="7"/><ellipse cx="389" cy="134" rx="11" ry="7"/>
+      <ellipse cx="368" cy="131" rx="10" ry="6"/>
+    </g>
+    <!-- Spine / dorsal vertebrae -->
+    <path d="M360 128 Q320 120 280 122 Q250 123 230 128" stroke="${c}" stroke-width="3" fill="none"/>
+    <g stroke="${c}" stroke-width="1.5" fill="${c}20">
+      <line x1="355" y1="128" x2="355" y2="112"/><ellipse cx="355" cy="110" rx="5" ry="4"/>
+      <line x1="340" y1="124" x2="340" y2="107"/><ellipse cx="340" cy="105" rx="5" ry="4"/>
+      <line x1="325" y1="122" x2="325" y2="104"/><ellipse cx="325" cy="102" rx="5" ry="4"/>
+      <line x1="310" y1="121" x2="310" y2="103"/><ellipse cx="310" cy="101" rx="5" ry="4"/>
+      <line x1="295" y1="122" x2="295" y2="104"/><ellipse cx="295" cy="102" rx="5" ry="4"/>
+      <line x1="280" y1="122" x2="280" y2="106"/><ellipse cx="280" cy="104" rx="5" ry="4"/>
+    </g>
+    <!-- Pelvis -->
+    <ellipse cx="360" cy="140" rx="28" ry="20" stroke="${c}" stroke-width="2.5" fill="${c}15"/>
+    <line x1="350" y1="130" x2="345" y2="115" stroke="${c}" stroke-width="2"/>
+    <line x1="370" y1="130" x2="375" y2="115" stroke="${c}" stroke-width="2"/>
+    <!-- Ribcage -->
+    <g stroke="${c}" stroke-width="2" fill="${c}10">
+      <ellipse cx="290" cy="138" rx="48" ry="32"/>
+    </g>
+    <g stroke="${c}80" stroke-width="1.5" fill="none">
+      <path d="M268 120 Q255 135 268 150"/><path d="M278 116 Q262 133 275 152"/>
+      <path d="M290 115 Q272 132 283 154"/><path d="M302 116 Q287 132 295 154"/>
+      <path d="M313 120 Q300 134 308 152"/><path d="M322 125 Q312 137 318 150"/>
+    </g>
+    <!-- Neck vertebrae -->
+    <path d="M230 128 Q215 120 205 110 Q198 102 195 90" stroke="${c}" stroke-width="3" fill="none"/>
+    <!-- Skull -->
+    <g stroke="${c}" stroke-width="2" fill="${c}20">
+      <ellipse cx="172" cy="78" rx="36" ry="22"/>
+      <!-- Eye socket -->
+      <ellipse cx="162" cy="72" rx="9" ry="8" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+      <!-- Snout -->
+      <path d="M140 84 L128 92 L130 98 L155 90" fill="${c}30" stroke="${c}" stroke-width="1.5"/>
+      <!-- Teeth -->
+      <g fill="${c}" stroke="none">
+        <polygon points="133,93 137,93 135,102"/><polygon points="138,91 142,90 141,100"/>
+        <polygon points="143,89 147,89 146,99"/><polygon points="148,88 152,88 151,97"/>
+      </g>
+      <!-- Lower jaw -->
+      <path d="M128 98 Q140 108 175 100 L175 92" stroke="${c}" stroke-width="2" fill="${c}15"/>
+    </g>
+    <!-- Tiny arms -->
+    <g stroke="${c}" stroke-width="2" fill="none" opacity="0.8">
+      <line x1="248" y1="128" x2="238" y2="148"/>
+      <line x1="238" y1="148" x2="232" y2="162"/>
+      <!-- tiny fingers -->
+      <line x1="232" y1="162" x2="227" y2="168"/><line x1="232" y1="162" x2="230" y2="170"/>
+    </g>
+    <!-- Legs -->
+    <g stroke="${c}" stroke-width="3" fill="none">
+      <!-- Left leg -->
+      <line x1="350" y1="158" x2="335" y2="205"/>
+      <line x1="335" y1="205" x2="325" y2="250"/>
+      <path d="M325 250 L310 258 L308 264 L322 265 L330 258" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <!-- Right leg (offset) -->
+      <line x1="370" y1="160" x2="390" y2="205"/>
+      <line x1="390" y1="205" x2="395" y2="250"/>
+      <path d="M395 250 L380 258 L378 264 L393 265 L400 258" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <!-- Kneecaps -->
+    <circle cx="335" cy="205" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="390" cy="205" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <!-- Scale -->
+    <line x1="60" y1="258" x2="160" y2="258" stroke="${c}" stroke-width="2"/>
+    <line x1="60" y1="253" x2="60" y2="263" stroke="${c}" stroke-width="2"/>
+    <line x1="160" y1="253" x2="160" y2="263" stroke="${c}" stroke-width="2"/>
+    <text x="110" y="252" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~5 m (half body)</text>
+  </svg>`,
 
-function cardImg(id) {
-  return `images/cards/${id}.jpg`;
-  // ↑ Change .jpg to .png here if your files are PNG
-}
+  triceratops: (c) => `<svg viewBox="0 0 540 290" xmlns="http://www.w3.org/2000/svg" width="540">
+    <ellipse cx="270" cy="278" rx="190" ry="8" fill="${c}15"/>
+    <!-- Tail -->
+    <g stroke="${c}" stroke-width="2" fill="none" opacity="0.7">
+      <ellipse cx="478" cy="160" rx="14" ry="7"/><ellipse cx="455" cy="157" rx="13" ry="7"/>
+      <ellipse cx="432" cy="154" rx="12" ry="7"/><ellipse cx="410" cy="152" rx="11" ry="7"/>
+    </g>
+    <!-- Spine -->
+    <path d="M402 150 Q360 145 310 148 Q270 150 240 155" stroke="${c}" stroke-width="3" fill="none"/>
+    <!-- Dorsal spines -->
+    <g stroke="${c}" stroke-width="1.5">
+      <line x1="395" y1="150" x2="395" y2="136"/><line x1="375" y1="147" x2="375" y2="132"/>
+      <line x1="355" y1="146" x2="355" y2="130"/><line x1="335" y1="147" x2="335" y2="131"/>
+      <line x1="315" y1="148" x2="315" y2="133"/><line x1="295" y1="150" x2="295" y2="136"/>
+    </g>
+    <!-- Pelvis -->
+    <ellipse cx="400" cy="160" rx="30" ry="22" stroke="${c}" stroke-width="2.5" fill="${c}15"/>
+    <!-- Ribcage -->
+    <ellipse cx="310" cy="162" rx="58" ry="38" stroke="${c}" stroke-width="2" fill="${c}10"/>
+    <g stroke="${c}70" stroke-width="1.5" fill="none">
+      <path d="M282 142 Q264 162 280 182"/><path d="M295 138 Q275 160 290 182"/>
+      <path d="M310 136 Q290 160 305 183"/><path d="M325 138 Q307 160 320 182"/>
+      <path d="M338 142 Q322 161 334 180"/>
+    </g>
+    <!-- Neck -->
+    <path d="M240 155 Q220 148 200 148 Q185 148 170 152" stroke="${c}" stroke-width="3" fill="none"/>
+    <!-- Frill (bony plate) -->
+    <ellipse cx="148" cy="128" rx="52" ry="42" stroke="${c}" stroke-width="2" fill="${c}15" opacity="0.8"/>
+    <!-- Frill ribs -->
+    <g stroke="${c}60" stroke-width="1.5" fill="none">
+      <line x1="148" y1="128" x2="105" y2="98"/><line x1="148" y1="128" x2="112" y2="88"/>
+      <line x1="148" y1="128" x2="125" y2="82"/><line x1="148" y1="128" x2="140" y2="80"/>
+      <line x1="148" y1="128" x2="155" y2="80"/><line x1="148" y1="128" x2="168" y2="84"/>
+      <line x1="148" y1="128" x2="180" y2="92"/><line x1="148" y1="128" x2="188" y2="104"/>
+    </g>
+    <!-- Skull -->
+    <ellipse cx="175" cy="155" rx="38" ry="24" stroke="${c}" stroke-width="2.5" fill="${c}20"/>
+    <ellipse cx="162" cy="148" rx="8" ry="7" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <!-- Snout / beak -->
+    <path d="M137 162 L120 168 L122 176 L150 172" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    <!-- Three horns -->
+    <line x1="158" y1="136" x2="144" y2="100" stroke="${c}" stroke-width="3"/><circle cx="144" cy="99" r="4" fill="${c}"/>
+    <line x1="178" y1="133" x2="170" y2="96" stroke="${c}" stroke-width="3"/><circle cx="170" cy="95" r="4" fill="${c}"/>
+    <line x1="162" y1="144" x2="148" y2="120" stroke="${c}" stroke-width="2"/><circle cx="148" cy="119" r="3" fill="${c}60"/>
+    <!-- Front legs -->
+    <g stroke="${c}" stroke-width="2.5" fill="none">
+      <line x1="265" y1="190" x2="252" y2="228"/><line x1="252" y1="228" x2="245" y2="258"/>
+      <path d="M245 258 L230 264 L228 272 L248 272 L252 264" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="280" y1="192" x2="295" y2="228"/><line x1="295" y1="228" x2="298" y2="258"/>
+      <path d="M298 258 L285 264 L283 272 L300 272 L305 264" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <!-- Rear legs -->
+    <g stroke="${c}" stroke-width="3" fill="none">
+      <line x1="382" y1="178" x2="368" y2="222"/><line x1="368" y1="222" x2="360" y2="262"/>
+      <path d="M360 262 L346 268 L344 276 L362 276 L366 268" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="418" y1="180" x2="432" y2="222"/><line x1="432" y1="222" x2="435" y2="262"/>
+      <path d="M435 262 L422 268 L420 276 L436 276 L440 268" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <circle cx="252" cy="228" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="295" cy="228" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="368" cy="222" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="432" cy="222" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <line x1="40" y1="278" x2="140" y2="278" stroke="${c}" stroke-width="2"/>
+    <line x1="40" y1="273" x2="40" y2="283" stroke="${c}" stroke-width="2"/>
+    <line x1="140" y1="273" x2="140" y2="283" stroke="${c}" stroke-width="2"/>
+    <text x="90" y="270" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~4.5 m (half body)</text>
+  </svg>`,
 
-function sceneImg(id) {
-  return `images/scenes/${id}.jpg`;
-  // ↑ Change .jpg to .png here if your files are PNG
-}
+  brachiosaurus: (c) => `<svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" width="560">
+    <ellipse cx="280" cy="370" rx="200" ry="8" fill="${c}15"/>
+    <!-- Tail -->
+    <g stroke="${c}" stroke-width="2" fill="none" opacity="0.7">
+      <ellipse cx="510" cy="238" rx="16" ry="8"/><ellipse cx="486" cy="232" rx="14" ry="8"/>
+      <ellipse cx="462" cy="226" rx="13" ry="7"/><ellipse cx="439" cy="220" rx="12" ry="7"/>
+      <ellipse cx="418" cy="215" rx="11" ry="7"/>
+    </g>
+    <!-- Spine (low back) -->
+    <path d="M410 212 Q370 208 330 210 Q298 212 275 218" stroke="${c}" stroke-width="3.5" fill="none"/>
+    <!-- Dorsal vertebrae -->
+    <g stroke="${c}" stroke-width="1.5">
+      <line x1="400" y1="212" x2="400" y2="196"/><line x1="380" y1="210" x2="380" y2="192"/>
+      <line x1="360" y1="209" x2="360" y2="191"/><line x1="340" y1="210" x2="340" y2="192"/>
+      <line x1="320" y1="211" x2="320" y2="194"/><line x1="300" y1="213" x2="300" y2="197"/>
+    </g>
+    <!-- Pelvis (large) -->
+    <ellipse cx="406" cy="222" rx="36" ry="26" stroke="${c}" stroke-width="2.5" fill="${c}15"/>
+    <!-- Ribcage (very wide) -->
+    <ellipse cx="310" cy="228" rx="70" ry="52" stroke="${c}" stroke-width="2" fill="${c}10"/>
+    <g stroke="${c}70" stroke-width="1.5" fill="none">
+      <path d="M275 195 Q250 228 270 260"/><path d="M290 190 Q262 226 278 262"/>
+      <path d="M308 188 Q280 226 294 263"/><path d="M325 190 Q300 226 310 262"/>
+      <path d="M340 195 Q318 226 326 260"/>
+    </g>
+    <!-- Very long neck (key feature) -->
+    <path d="M255 218 Q238 200 225 178 Q212 156 202 130 Q193 105 187 80 Q182 55 180 32" stroke="${c}" stroke-width="4" fill="none"/>
+    <!-- Neck vertebrae -->
+    <g stroke="${c}" stroke-width="1.5" opacity="0.8">
+      <line x1="249" y1="210" x2="258" y2="210"/><line x1="238" y1="195" x2="248" y2="192"/>
+      <line x1="228" y1="175" x2="238" y2="170"/><line x1="218" y1="152" x2="228" y2="146"/>
+      <line x1="208" y1="128" x2="218" y2="122"/><line x1="197" y1="102" x2="208" y2="97"/>
+      <line x1="188" y1="76" x2="198" y2="70"/>
+    </g>
+    <!-- Skull (small, high up) -->
+    <ellipse cx="177" cy="24" rx="20" ry="13" stroke="${c}" stroke-width="2" fill="${c}20"/>
+    <ellipse cx="169" cy="20" rx="6" ry="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <!-- Nostril -->
+    <ellipse cx="184" cy="18" rx="4" ry="3" fill="${c}30" stroke="${c}" stroke-width="1"/>
+    <!-- Snout -->
+    <path d="M158 28 L148 33 L150 38 L168 36" fill="${c}30" stroke="${c}" stroke-width="1.5"/>
+    <!-- Peg teeth (small) -->
+    <g fill="${c}" stroke="none">
+      <polygon points="152,33 155,33 153,38"/><polygon points="156,32 159,32 158,37"/>
+      <polygon points="160,31 163,31 162,36"/>
+    </g>
+    <!-- Shoulder blades -->
+    <path d="M275 212 L268 190 L285 182 L290 210" stroke="${c}" stroke-width="2" fill="${c}20"/>
+    <!-- Front legs (longer than rear) -->
+    <g stroke="${c}" stroke-width="3.5" fill="none">
+      <line x1="272" y1="268" x2="258" y2="318"/><line x1="258" y1="318" x2="252" y2="358"/>
+      <path d="M252 358 L235 363 L233 370 L254 371 L260 362" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="298" y1="272" x2="315" y2="318"/><line x1="315" y1="318" x2="320" y2="358"/>
+      <path d="M320 358 L306 363 L304 370 L322 371 L326 362" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <!-- Rear legs (shorter) -->
+    <g stroke="${c}" stroke-width="3" fill="none">
+      <line x1="380" y1="244" x2="366" y2="308"/><line x1="366" y1="308" x2="360" y2="360"/>
+      <path d="M360 360 L346 365 L344 372 L362 373 L367 364" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="432" y1="246" x2="446" y2="308"/><line x1="446" y1="308" x2="450" y2="360"/>
+      <path d="M450 360 L437 365 L435 372 L452 373 L456 364" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <circle cx="258" cy="318" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="315" cy="318" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="366" cy="308" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="446" cy="308" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <line x1="40" y1="368" x2="170" y2="368" stroke="${c}" stroke-width="2"/>
+    <line x1="40" y1="362" x2="40" y2="374" stroke="${c}" stroke-width="2"/>
+    <line x1="170" y1="362" x2="170" y2="374" stroke="${c}" stroke-width="2"/>
+    <text x="105" y="360" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~13 m (half body)</text>
+  </svg>`,
 
-/* Emoji fallback shown if an image file is missing */
-const FALLBACK_EMOJI = {
-  trex:'🦖', triceratops:'🦕', brachiosaurus:'🦕',
-  velociraptor:'🦖', stegosaurus:'🦕', pteranodon:'🦅'
+  velociraptor: (c) => `<svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" width="420">
+    <ellipse cx="210" cy="250" rx="150" ry="7" fill="${c}15"/>
+    <!-- Long stiff tail -->
+    <path d="M355 128 Q375 122 393 118 Q408 114 420 112" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <g stroke="${c}" stroke-width="1.5" fill="none" opacity="0.7">
+      <ellipse cx="370" cy="124" rx="9" ry="5"/><ellipse cx="385" cy="120" rx="8" ry="4"/>
+      <ellipse cx="398" cy="116" rx="7" ry="4"/><ellipse cx="410" cy="113" rx="6" ry="4"/>
+    </g>
+    <!-- Spine -->
+    <path d="M348 130 Q310 125 278 128 Q260 130 245 136" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <!-- Dorsal vertebrae -->
+    <g stroke="${c}" stroke-width="1.5">
+      <line x1="343" y1="130" x2="343" y2="118"/><line x1="328" y1="127" x2="328" y2="114"/>
+      <line x1="312" y1="127" x2="312" y2="113"/><line x1="296" y1="128" x2="296" y2="114"/>
+      <line x1="280" y1="129" x2="280" y2="116"/>
+    </g>
+    <!-- Pelvis -->
+    <ellipse cx="350" cy="138" rx="22" ry="17" stroke="${c}" stroke-width="2" fill="${c}15"/>
+    <!-- Ribcage (small and lean) -->
+    <ellipse cx="282" cy="142" rx="42" ry="28" stroke="${c}" stroke-width="2" fill="${c}10"/>
+    <g stroke="${c}70" stroke-width="1.5" fill="none">
+      <path d="M263 122 Q250 142 260 162"/><path d="M272 119 Q257 141 265 162"/>
+      <path d="M282 118 Q266 141 274 162"/><path d="M292 119 Q278 141 284 161"/>
+      <path d="M302 122 Q290 141 294 160"/>
+    </g>
+    <!-- S-curved neck -->
+    <path d="M245 136 Q230 128 218 120 Q208 112 202 100 Q197 90 196 78" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <!-- Skull (lean, birdlike) -->
+    <ellipse cx="188" cy="70" rx="26" ry="16" stroke="${c}" stroke-width="2" fill="${c}20"/>
+    <!-- Large eye socket (raptor feature) -->
+    <ellipse cx="180" cy="65" rx="9" ry="8" fill="${c}50" stroke="${c}" stroke-width="1.5"/>
+    <!-- Snout -->
+    <path d="M163 74 L148 80 L150 87 L170 82" fill="${c}30" stroke="${c}" stroke-width="1.5"/>
+    <!-- Serrated teeth -->
+    <g fill="${c}" stroke="none">
+      <polygon points="151,80 155,80 153,87"/><polygon points="156,78 160,77 159,86"/>
+      <polygon points="161,76 165,76 164,84"/><polygon points="166,75 170,75 168,83"/>
+    </g>
+    <!-- Lower jaw -->
+    <path d="M148 87 Q162 96 190 86 L188 78" stroke="${c}" stroke-width="1.5" fill="${c}15"/>
+    <!-- Arms (feathered) with quill bumps -->
+    <g stroke="${c}" stroke-width="2" fill="none">
+      <line x1="258" y1="136" x2="244" y2="158"/>
+      <line x1="244" y1="158" x2="235" y2="175"/>
+      <!-- Finger claws -->
+      <line x1="235" y1="175" x2="228" y2="183"/><line x1="235" y1="175" x2="232" y2="185"/>
+      <line x1="235" y1="175" x2="238" y2="185"/>
+    </g>
+    <!-- Legs -->
+    <g stroke="${c}" stroke-width="2.5" fill="none">
+      <!-- Left leg -->
+      <line x1="340" y1="152" x2="325" y2="192"/>
+      <line x1="325" y1="192" x2="318" y2="228"/>
+      <!-- Foot + SICKLE CLAW highlight -->
+      <path d="M318 228 L305 235 L303 242 L316 243 L320 236" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <path d="M318 228 Q310 218 308 212" stroke="${c}" stroke-width="3"/><!-- sickle claw -->
+      <circle cx="308" cy="211" r="4" fill="${c}" stroke="${c}" stroke-width="1"/>
+      <!-- Right leg -->
+      <line x1="358" y1="154" x2="375" y2="192"/>
+      <line x1="375" y1="192" x2="380" y2="228"/>
+      <path d="M380 228 L368 235 L366 242 L380 243 L384 235" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <circle cx="325" cy="192" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="375" cy="192" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <line x1="30" y1="244" x2="90" y2="244" stroke="${c}" stroke-width="2"/>
+    <line x1="30" y1="239" x2="30" y2="249" stroke="${c}" stroke-width="2"/>
+    <line x1="90" y1="239" x2="90" y2="249" stroke="${c}" stroke-width="2"/>
+    <text x="60" y="237" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~1 m (half)</text>
+  </svg>`,
+
+  stegosaurus: (c) => `<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" width="520">
+    <ellipse cx="260" cy="288" rx="185" ry="7" fill="${c}15"/>
+    <!-- Tail with thagomizer spikes -->
+    <g stroke="${c}" stroke-width="2" fill="none" opacity="0.7">
+      <ellipse cx="472" cy="175" rx="14" ry="7"/><ellipse cx="450" cy="172" rx="13" ry="7"/>
+      <ellipse cx="428" cy="170" rx="12" ry="7"/>
+    </g>
+    <!-- Thagomizer (4 tail spikes) -->
+    <g stroke="${c}" stroke-width="3" fill="${c}40">
+      <line x1="484" y1="162" x2="510" y2="142"/><circle cx="511" cy="141" r="4" fill="${c}"/>
+      <line x1="484" y1="168" x2="512" y2="155"/><circle cx="513" cy="154" r="4" fill="${c}"/>
+      <line x1="484" y1="178" x2="512" y2="188"/><circle cx="513" cy="189" r="4" fill="${c}"/>
+      <line x1="484" y1="183" x2="510" y2="198"/><circle cx="511" cy="199" r="4" fill="${c}"/>
+    </g>
+    <!-- Spine -->
+    <path d="M420 170 Q378 162 330 162 Q290 162 262 168" stroke="${c}" stroke-width="3.5" fill="none"/>
+    <!-- DORSAL PLATES (alternating, iconic stegosaurus feature) -->
+    <g stroke="${c}" stroke-width="2" fill="${c}25">
+      <!-- Large central plates -->
+      <polygon points="330,162 318,118 342,118"/><polygon points="350,161 340,108 360,108"/>
+      <polygon points="368,161 360,100 376,100"/><polygon points="384,161 377,108 392,108"/>
+      <polygon points="314,163 302,122 326,122"/>
+      <!-- Smaller front/back plates -->
+      <polygon points="298,164 288,130 308,130"/><polygon points="282,166 273,136 291,136"/>
+      <polygon points="400,162 392,120 408,120"/><polygon points="415,163 408,126 422,126"/>
+    </g>
+    <!-- Pelvis -->
+    <ellipse cx="416" cy="180" rx="30" ry="22" stroke="${c}" stroke-width="2.5" fill="${c}15"/>
+    <!-- Ribcage (wide and low) -->
+    <ellipse cx="318" cy="184" rx="60" ry="44" stroke="${c}" stroke-width="2" fill="${c}10"/>
+    <g stroke="${c}70" stroke-width="1.5" fill="none">
+      <path d="M285 162 Q265 184 278 205"/><path d="M298 158 Q276 182 285 206"/>
+      <path d="M312 157 Q290 182 298 207"/><path d="M326 158 Q306 182 312 206"/>
+      <path d="M340 162 Q322 183 325 205"/>
+    </g>
+    <!-- Short neck -->
+    <path d="M262 168 Q248 162 236 160 Q224 158 214 163" stroke="${c}" stroke-width="3" fill="none"/>
+    <!-- Small skull -->
+    <ellipse cx="195" cy="170" rx="30" ry="19" stroke="${c}" stroke-width="2" fill="${c}20"/>
+    <ellipse cx="186" cy="165" rx="7" ry="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <!-- Toothless beak -->
+    <path d="M166 174 L152 180 L154 188 L173 183" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    <!-- Front legs (short) -->
+    <g stroke="${c}" stroke-width="2.5" fill="none">
+      <line x1="274" y1="218" x2="262" y2="255"/><line x1="262" y1="255" x2="255" y2="278"/>
+      <path d="M255 278 L240 284 L238 290 L258 290 L263 283" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="290" y1="220" x2="305" y2="255"/><line x1="305" y1="255" x2="308" y2="278"/>
+      <path d="M308 278 L295 284 L293 290 L310 290 L315 283" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <!-- Rear legs (taller) -->
+    <g stroke="${c}" stroke-width="3" fill="none">
+      <line x1="398" y1="200" x2="382" y2="245"/><line x1="382" y1="245" x2="374" y2="278"/>
+      <path d="M374 278 L360 284 L358 290 L376 290 L381 283" fill="${c}30" stroke="${c}" stroke-width="2"/>
+      <line x1="434" y1="202" x2="448" y2="245"/><line x1="448" y1="245" x2="452" y2="278"/>
+      <path d="M452 278 L438 284 L436 290 L453 290 L457 283" fill="${c}30" stroke="${c}" stroke-width="2"/>
+    </g>
+    <circle cx="262" cy="255" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="305" cy="255" r="5" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="382" cy="245" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="448" cy="245" r="6" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <line x1="40" y1="286" x2="130" y2="286" stroke="${c}" stroke-width="2"/>
+    <line x1="40" y1="281" x2="40" y2="291" stroke="${c}" stroke-width="2"/>
+    <line x1="130" y1="281" x2="130" y2="291" stroke="${c}" stroke-width="2"/>
+    <text x="85" y="278" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~4.5 m (half)</text>
+  </svg>`,
+
+  pteranodon: (c) => `<svg viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg" width="580">
+    <ellipse cx="290" cy="268" rx="160" ry="7" fill="${c}15"/>
+    <!-- Wing membranes (left = full wingspan) -->
+    <!-- Left wing -->
+    <path d="M255 130 Q180 95 100 78 Q60 70 20 72" stroke="${c}" stroke-width="2" fill="${c}12" opacity="0.9"/>
+    <path d="M255 130 Q200 155 130 162 Q80 166 20 72" stroke="${c}" stroke-width="1.5" fill="${c}10"/>
+    <!-- Wing finger bones -->
+    <line x1="255" y1="130" x2="100" y2="78" stroke="${c}" stroke-width="2.5"/>
+    <line x1="255" y1="130" x2="88" y2="90" stroke="${c}" stroke-width="2"/>
+    <line x1="255" y1="130" x2="80" y2="105" stroke="${c}" stroke-width="1.5"/>
+    <!-- Right wing (folded) -->
+    <path d="M280 130 Q320 112 355 108 Q390 105 420 108" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <path d="M280 130 Q325 148 365 152 Q395 155 420 108" stroke="${c}" stroke-width="1.5" fill="${c}10"/>
+    <!-- Body / sternum -->
+    <ellipse cx="270" cy="148" rx="38" ry="24" stroke="${c}" stroke-width="2.5" fill="${c}15"/>
+    <!-- Keeled sternum (flight bone) -->
+    <path d="M252 155 Q270 168 288 155" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <!-- Shoulder / coracoid -->
+    <path d="M255 130 L252 148" stroke="${c}" stroke-width="3"/>
+    <path d="M280 130 L283 148" stroke="${c}" stroke-width="3"/>
+    <!-- Short legs -->
+    <g stroke="${c}" stroke-width="2" fill="none">
+      <line x1="258" y1="168" x2="248" y2="195"/>
+      <line x1="248" y1="195" x2="240" y2="215"/>
+      <path d="M240 215 L228 220 L226 228 L242 228 L246 220" fill="${c}30" stroke="${c}" stroke-width="1.5"/>
+      <line x1="282" y1="170" x2="294" y2="195"/>
+      <line x1="294" y1="195" x2="298" y2="215"/>
+      <path d="M298 215 L286 220 L284 228 L300 228 L304 220" fill="${c}30" stroke="${c}" stroke-width="1.5"/>
+    </g>
+    <!-- Long neck -->
+    <path d="M254 132 Q244 120 236 108 Q228 96 224 82" stroke="${c}" stroke-width="2.5" fill="none"/>
+    <!-- HEAD CREST (dramatic, iconic) -->
+    <path d="M216 74 Q224 55 238 40 Q252 26 268 20 Q276 18 278 24 Q272 32 258 45 Q242 60 230 78" stroke="${c}" stroke-width="3" fill="${c}25"/>
+    <!-- Skull -->
+    <ellipse cx="220" cy="82" rx="24" ry="14" stroke="${c}" stroke-width="2" fill="${c}20"/>
+    <ellipse cx="213" cy="78" rx="7" ry="6" fill="${c}50" stroke="${c}" stroke-width="1.5"/>
+    <!-- Long toothless beak -->
+    <path d="M200 84 Q175 88 155 90 L155 97 Q178 96 202 91" fill="${c}25" stroke="${c}" stroke-width="2"/>
+    <path d="M200 88 Q175 94 155 97" stroke="${c}" stroke-width="1.5" fill="none"/>
+    <!-- Wing claws (small) -->
+    <circle cx="22" cy="72" r="4" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="420" cy="108" r="4" fill="${c}40" stroke="${c}" stroke-width="1.5"/>
+    <line x1="40" y1="258" x2="180" y2="258" stroke="${c}" stroke-width="2"/>
+    <line x1="40" y1="253" x2="40" y2="263" stroke="${c}" stroke-width="2"/>
+    <line x1="180" y1="253" x2="180" y2="263" stroke="${c}" stroke-width="2"/>
+    <text x="110" y="251" text-anchor="middle" font-size="10" fill="${c}" font-family="sans-serif">~3.5 m (half wingspan)</text>
+  </svg>`,
 };
 
-/* =============================================================
-   DINOSAUR DATA
-   Add more dinosaurs by copying one block and filling it in.
-   Make sure to add matching image files for each new id.
-   ============================================================= */
+/* =====================================================================
+   SKELETON BONE FACTS  — per dinosaur
+   ===================================================================== */
+const SKELETON_DATA = {
+  trex:{
+    boneLegend:[
+      {color:'#ff6050',label:'Cranium & jaws'},
+      {color:'#ff8060',label:'Vertebral column'},
+      {color:'#ffaa80',label:'Ribcage & sternum'},
+      {color:'#ffcc80',label:'Pelvis & hind limbs'},
+    ],
+    scalePx:100, scaleM:'~5 m',
+    facts:[
+      {icon:'💀',title:'Hollow Bones',text:'Despite weighing 8 tons, T. Rex had hollow limb bones filled with air sacs — the same adaptation seen in modern birds, reducing overall mass without sacrificing structural strength.'},
+      {icon:'🦷',title:'Banana-Sized Teeth',text:'Each serrated tooth was 20–30 cm long including the root, continuously replaced throughout life. The skull alone was 1.5 meters long — roughly the size of a bathtub.'},
+      {icon:'🦴',title:'Tiny Arm Skeleton',text:'The forelimb had only two functional digits. Each arm was about 1 meter long — laughably short for an animal 12 meters from snout to tail tip.'},
+      {icon:'🦵',title:'Leg Power',text:'The femur (thigh bone) was among the strongest and densest of any known theropod, consistent with supporting 8 tons of body mass while running at up to 25 km/h.'},
+      {icon:'⚖️',title:'Wishbone (Furcula)',text:'T. Rex had a large wishbone — previously thought a bird-only feature. This confirmed dinosaurs\' direct evolutionary link to modern birds.'},
+    ]
+  },
+  triceratops:{
+    boneLegend:[
+      {color:'#50dc64',label:'Skull & frill'},
+      {color:'#70ff80',label:'Horn cores'},
+      {color:'#80ff90',label:'Vertebral column'},
+      {color:'#a0ffb0',label:'Limbs & feet'},
+    ],
+    scalePx:100, scaleM:'~4.5 m',
+    facts:[
+      {icon:'🛡️',title:'The Frill',text:'The massive neck frill was solid bone laced with blood vessels. It could blush vivid red or orange — a biological billboard for threat displays, mate attraction, and species recognition.'},
+      {icon:'🔱',title:'Horn Cores',text:'The two brow horns were bone cores covered in keratin sheaths (like rhino horns), potentially growing to 1.2 meters. A nasal horn was smaller and more variable between individuals.'},
+      {icon:'🦴',title:'Four-Legged Stance',text:'Unlike bipedal theropods, Triceratops used all four limbs. The front legs were semi-erect, not fully sprawling — a posture that allowed surprising charge speed for a 12-ton animal.'},
+      {icon:'🦷',title:'Dental Battery',text:'The jaw held up to 800 teeth arranged in vertical stacks — as old teeth wore down, new ones erupted from below. The beak sheared vegetation while the teeth ground it to pulp.'},
+      {icon:'💀',title:'Largest Skull',text:'Triceratops had one of the largest skulls of any land animal ever — up to 2.5 meters long, accounting for nearly a third of the animal\'s total body length.'},
+    ]
+  },
+  brachiosaurus:{
+    boneLegend:[
+      {color:'#5080ff',label:'Skull & neck vertebrae'},
+      {color:'#7090ff',label:'Dorsal vertebrae'},
+      {color:'#90a0ff',label:'Ribcage & sternum'},
+      {color:'#a0b0ff',label:'Limbs & feet'},
+    ],
+    scalePx:130, scaleM:'~13 m',
+    facts:[
+      {icon:'🦒',title:'Pneumatized Vertebrae',text:'Neck vertebrae were riddled with air pockets (pneumatization), like a honeycomb — each bone was lightweight but structurally strong, making the 9-meter neck physically possible.'},
+      {icon:'🫀',title:'The Heart',text:'Pumping blood 9 meters vertically required a heart estimated at 400 kg — possibly the largest heart of any land animal ever. Some scientists proposed a multi-chambered system, similar to a bird\'s.'},
+      {icon:'🐘',title:'Column Legs',text:'All four legs were columnar and nearly vertical, like architectural pillars. Uniquely, the front legs were longer than the hind legs — giving the body a forward-tilted profile and the name "arm lizard."'},
+      {icon:'🦷',title:'Spatula Teeth',text:'The chisel-shaped teeth were designed purely for raking leaves, not chewing. Food was swallowed whole and ground by gastroliths — smooth stones swallowed deliberately into the gizzard.'},
+      {icon:'💨',title:'Bird-Like Air Sacs',text:'An extensive system of air sacs threaded through the skeleton helped cycle oxygen efficiently — crucial for an animal whose lungs were located 9 meters below its brain.'},
+    ]
+  },
+  velociraptor:{
+    boneLegend:[
+      {color:'#ffa020',label:'Skull & jaws'},
+      {color:'#ffb840',label:'Vertebral column & tail'},
+      {color:'#ffcc60',label:'Ribcage'},
+      {color:'#ffdd80',label:'Sickle claw & feet'},
+    ],
+    scalePx:60, scaleM:'~1 m',
+    facts:[
+      {icon:'🌙',title:'The Sickle Claw',text:'The famous second toe claw was held permanently off the ground to keep it razor-sharp. CT scans show it was used to pin — not slash — prey, functioning like a hawk\'s talon to hold struggling victims.'},
+      {icon:'🪶',title:'Quill Knobs',text:'Fossil arm bones show bumps called quill knobs where feathers anchored — identical to modern birds of prey. Velociraptors were fully feathered, looking more like a ground hawk than a scaly lizard.'},
+      {icon:'🦴',title:'Ossified Tail',text:'Rod-like ossified tendons ran the length of the tail, making it nearly rigid. This acted as a gyroscopic stabilizer, enabling near-instantaneous direction changes at speed.'},
+      {icon:'🧠',title:'Brain Case',text:'The skull was long and low, with a large brain case — giving one of the highest brain-to-body ratios of any non-avian dinosaur. The optic lobes were especially developed, suggesting acute vision.'},
+      {icon:'💀',title:'Wishbone',text:'Like T. Rex, Velociraptor had a robust wishbone (furcula) — a direct ancestral link to the wishbones found in every modern chicken and eagle alive today.'},
+    ]
+  },
+  stegosaurus:{
+    boneLegend:[
+      {color:'#d4cc40',label:'Skull & neck'},
+      {color:'#e0d840',label:'Dorsal plates'},
+      {color:'#e8e050',label:'Vertebral column'},
+      {color:'#f0e860',label:'Thagomizer & limbs'},
+    ],
+    scalePx:90, scaleM:'~4.5 m',
+    facts:[
+      {icon:'🔺',title:'The Dorsal Plates',text:'17 bony plates (osteoderms) were embedded in the skin, not attached to the skeleton. X-ray analysis reveals a dense network of blood channels — consistent with heat regulation and color-flushing displays.'},
+      {icon:'🗡️',title:'Thagomizer Anatomy',text:'The four tail spikes were solid bone encased in keratin — capable of delivering puncture wounds. An Allosaurus vertebra was found with a Stegosaurus-shaped hole exactly matching the spike dimensions.'},
+      {icon:'🧠',title:'Walnut Brain',text:'The braincase was tiny — about 80 grams for an animal 9 meters long. A large sacral nerve plexus near the hips may have coordinated tail movements semi-independently.'},
+      {icon:'🦴',title:'Leg Proportions',text:'The hind legs were significantly longer than the front legs, creating the distinctive arched back profile. This posture lowered the head for ground-level grazing on ferns and low cycads.'},
+      {icon:'💀',title:'Dermal Armor',text:'Beyond the plates and spikes, Stegosaurus had small bony nodules (ossicles) embedded in the skin of the throat — a chain-mail-like defense against biting predators.'},
+    ]
+  },
+  pteranodon:{
+    boneLegend:[
+      {color:'#a050ff',label:'Skull, crest & beak'},
+      {color:'#b460ff',label:'Wing finger bones'},
+      {color:'#c878ff',label:'Sternum & body'},
+      {color:'#da90ff',label:'Legs & feet'},
+    ],
+    scalePx:140, scaleM:'~3.5 m wingspan',
+    facts:[
+      {icon:'🪶',title:'Ultra-Light Skeleton',text:'The entire skeleton weighed under 2 kg despite a 7-meter wingspan — bones were hollow tubes with internal strut-bracing, similar to carbon fiber construction. Density rivaled modern albatrosses.'},
+      {icon:'📡',title:'The Head Crest',text:'The dramatic bony crest was a backward extension of the skull. Studies show it acted as a rudder during flight — turning the head steered the animal. It also grew larger in males, signaling fitness to mates.'},
+      {icon:'🪁',title:'Wing Anatomy',text:'Wings were formed by a single enormously elongated fourth finger, with a membrane (patagium) stretching to the ankle. This is unique in vertebrate evolution — completely different from bat or bird wings.'},
+      {icon:'🫀',title:'Keeled Sternum',text:'A deep keel on the breastbone anchored powerful flight muscles — the same adaptation seen in modern birds. The shoulder socket also faced upward, allowing efficient downstroke power.'},
+      {icon:'💀',title:'Not a Dinosaur',text:'Pteranodon\'s skeleton shows no features of true dinosaurs (like a fully upright leg stance). Pterosaurs evolved flight independently, branching off earlier in the archosaur family tree.'},
+    ]
+  },
+};
+
 const DINOS = [
   {
     id:'trex',
@@ -303,22 +791,22 @@ const DINOS = [
       {label:'Bite Force',value:'60,000 N',  compareKey:'bite',   compareVal:60000, icon:'🦷'},
     ],
     hotspots:[
-      {x:'30%',y:'25%',icon:'🦷',label:'Massive Jaws',      fact:'50–60 banana-sized teeth up to 30 cm long, serrated like steak knives. Continually replaced throughout life — one bite could crush bone.'},
-      {x:'55%',y:'48%',icon:'🦴',label:'Tiny Arms',         fact:'Only ~1 meter long — too short to reach its mouth. Likely used to grip struggling prey or push itself up from rest.'},
-      {x:'65%',y:'68%',icon:'🦵',label:'Powerful Legs',     fact:'Hollow leg bones kept it agile despite 8 tons. Each stride covered 4–6 meters. Leg muscles were 40% of total body weight.'},
-      {x:'20%',y:'18%',icon:'👁️',label:'Binocular Vision',  fact:'Forward-facing eyes gave 13× sharper binocular vision than a human — capable of spotting moving prey over 6 km away.'},
-      {x:'80%',y:'42%',icon:'🐍',label:'Counter Tail',      fact:'Almost half its body length, this massive tail counterbalanced the enormous skull and enabled rapid direction changes.'},
+      {x:'30%',y:'25%',icon:'🦷',label:'Massive Jaws',fact:'50–60 banana-sized teeth up to 30 cm long, serrated like steak knives. Continually replaced throughout life — one bite could crush bone.'},
+      {x:'55%',y:'48%',icon:'🦴',label:'Tiny Arms',fact:'Only ~1 meter long — too short to reach its mouth. Likely used to grip struggling prey or push itself up from rest.'},
+      {x:'65%',y:'68%',icon:'🦵',label:'Powerful Legs',fact:'Hollow leg bones kept it agile despite 8 tons. Each stride covered 4–6 meters. Leg muscles were 40% of total body weight.'},
+      {x:'20%',y:'18%',icon:'👁️',label:'Binocular Vision',fact:'Forward-facing eyes gave 13× sharper binocular vision than a human — capable of spotting moving prey over 6 km away.'},
+      {x:'80%',y:'42%',icon:'🐍',label:'Counter Tail',fact:'Almost half its body length, this massive tail counterbalanced the enormous skull and enabled rapid direction changes.'},
     ],
     facts:[
-      {icon:'🧠',label:'Feathered?',    text:'Fossil evidence suggests young T. Rex had sparse proto-feathers. Adults were likely mostly scaly, like a large Komodo dragon.'},
-      {icon:'🐣',label:'Growth Rate',   text:'Added up to 2 kg per day as a teenager — one of the fastest growth rates of any known land animal in Earth\'s history.'},
-      {icon:'🌍',label:'Sue the T. Rex',text:'Six dig sites. Six stories. Six prehistoric heroes. Discover the incredible lives of dinosaurs unearthed from real-world excavations in a reimagining of the iconic series. Pioneering special effects recreate the twists and turns of the age of the dinosaurs in character-led stories with a truly heavyweight cast.'},
+      {icon:'🧠',label:'Feathered?',text:'Fossil evidence suggests young T. Rex had sparse proto-feathers. Adults were likely mostly scaly, like a large Komodo dragon.'},
+      {icon:'🐣',label:'Growth Rate',text:'Added up to 2 kg per day as a teenager — one of the fastest growth rates of any known land animal in Earth\'s history.'},
+      {icon:'🌍',label:'Sue the T. Rex',text:'"Sue," the most complete T. Rex skeleton ever found, was discovered in South Dakota in 1990 and now lives at the Field Museum in Chicago.'},
     ],
     videos:[
-      {id:'STV0hcSNt40',title:'10 Interesting Facts About Tyrannosaurus Rex',        desc:'Uncover 10 fascinating facts about the king of the dinosaurs, Tyrannosaurus Rex!',tag:'doc'},
-      {id:'gny5iZI8IBY',title:'TYRANNOSAURUS REX - KING OF THE LIZARD TYRANTS',        desc:'Journey through the history of Tyrannosaurus Rex, from its Jurassic origins to its Cretaceous reign. Explore the evolution of this apex predator, examining its skeletal structure and hunting prowess. Discover fascinating fossil discoveries and the scientific debates surrounding this iconic dinosaur.',tag:'science'},
-      {id:'Fb9TAh_DMvg',title:'Tyrannosaurus Rex: The Scariest & Most Feared Dinosaur to Walk The Earth',           desc:'This video offers a comprehensive look into the Tyrannosaurus Rex, covering its physical characteristics, behavior and habits, and discovery. It also explores its evolution in scientific understanding and its iconic status in popular culture. The documentary concludes by discussing its habitat, its presence during a mass extinction event, and its place within the Tyrannosaurid family.',tag:'doc'},
-      {id:'XV2c3kvfwxg',title:'Greatest Standoff: T.rex vs Triceratops',           desc:'Feathers, growth rates, warm blood — the counterintuitive science of the world\'s most famous dinosaur.',tag:'fact'},
+      {id:'STV0hcSNt40',title:'10 Interesting Facts About T. Rex',desc:'Uncover 10 fascinating facts about the king of the dinosaurs.',tag:'doc'},
+      {id:'gny5iZI8IBY',title:'T. Rex — King of the Lizard Tyrants',desc:'Journey through the history of T. Rex from its origins to Cretaceous reign.',tag:'science'},
+      {id:'Fb9TAh_DMvg',title:'T. Rex: The Scariest Dinosaur to Walk Earth',desc:'Comprehensive look at T. Rex: physical traits, behavior, and discovery.',tag:'doc'},
+      {id:'XV2c3kvfwxg',title:'Greatest Standoff: T. Rex vs Triceratops',desc:'The epic prehistoric rivalry examined through fossil evidence.',tag:'fact'},
     ]
   },
   {
@@ -328,28 +816,28 @@ const DINOS = [
     era:'cretaceous', startMa:68, endMa:66, accentColor:'#50dc64', timeline:88,
     cardDesc:'Built like a living tank — three horns, a massive blood-flushing neck frill, and 800 teeth that could grind the toughest Cretaceous plants.',
     stats:[
-      {label:'Length',     value:'9 m',   compareKey:'length', compareVal:9,   icon:'📏'},
-      {label:'Weight',     value:'12 tons',compareKey:'weight', compareVal:12,  icon:'⚖️'},
-      {label:'Speed',      value:'~30 km/h',compareKey:'speed', compareVal:30,  icon:'⚡'},
-      {label:'Horn Length',value:'1 m',   compareKey:'horn',   compareVal:100, icon:'🔱'},
+      {label:'Length',value:'9 m',compareKey:'length',compareVal:9,icon:'📏'},
+      {label:'Weight',value:'12 tons',compareKey:'weight',compareVal:12,icon:'⚖️'},
+      {label:'Speed',value:'~30 km/h',compareKey:'speed',compareVal:30,icon:'⚡'},
+      {label:'Horn Length',value:'1 m',compareKey:'horn',compareVal:100,icon:'🔱'},
     ],
     hotspots:[
-      {x:'22%',y:'18%',icon:'🔱',label:'Three Horns',    fact:'Brow horns reached 1 meter each — keratin over bone, used for T. Rex defense and sparring duels with rivals.'},
-      {x:'12%',y:'40%',icon:'🛡️',label:'Neck Frill',     fact:'The 2.5-meter bony frill was laced with blood vessels — possibly flushing vivid red during threat displays.'},
-      {x:'55%',y:'40%',icon:'💪',label:'Barrel Body',    fact:'Enormous ribcage housed a multi-chambered gut to digest the toughest cycads and ancient palms.'},
-      {x:'72%',y:'65%',icon:'🐾',label:'Elephant Feet',  fact:'Broad padded feet distributed 12 tons evenly. Front legs were semi-erect, giving surprising agility.'},
-      {x:'42%',y:'62%',icon:'🦷',label:'Dental Battery', fact:'Up to 800 tiny teeth in stacked columns. New ones erupted as old ones wore down — a lifelong conveyor belt.'},
+      {x:'22%',y:'18%',icon:'🔱',label:'Three Horns',fact:'Brow horns reached 1 meter each — keratin over bone, used for T. Rex defense and sparring duels with rivals.'},
+      {x:'12%',y:'40%',icon:'🛡️',label:'Neck Frill',fact:'The 2.5-meter bony frill was laced with blood vessels — possibly flushing vivid red during threat displays.'},
+      {x:'55%',y:'40%',icon:'💪',label:'Barrel Body',fact:'Enormous ribcage housed a multi-chambered gut to digest the toughest cycads and ancient palms.'},
+      {x:'72%',y:'65%',icon:'🐾',label:'Elephant Feet',fact:'Broad padded feet distributed 12 tons evenly. Front legs were semi-erect, giving surprising agility.'},
+      {x:'42%',y:'62%',icon:'🦷',label:'Dental Battery',fact:'Up to 800 tiny teeth in stacked columns. New ones erupted as old ones wore down — a lifelong conveyor belt.'},
     ],
     facts:[
-      {icon:'🤺',label:'T. Rex Battles',  text:'Multiple Triceratops bones show healed T. Rex bite marks — proof they survived attacks from the apex predator.'},
-      {icon:'🔬',label:'Aging Frill',     text:'Young Triceratops had smooth frills. With age it became elaborate and wavy — advertising social rank.'},
-      {icon:'🧬',label:'Modern Posture',  text:'We now know Triceratops held its hind legs fully erect and front legs semi-erect — not sprawling lizard-style.'},
+      {icon:'🤺',label:'T. Rex Battles',text:'Multiple Triceratops bones show healed T. Rex bite marks — proof they survived attacks from the apex predator.'},
+      {icon:'🔬',label:'Aging Frill',text:'Young Triceratops had smooth frills. With age it became elaborate and wavy — advertising social rank.'},
+      {icon:'🧬',label:'Modern Posture',text:'We now know Triceratops held its hind legs fully erect and front legs semi-erect — not sprawling lizard-style.'},
     ],
     videos:[
-      {id:'H0r_6yJDZMA',title:'Triceratops: Horns & Frills',   desc:'The science behind the iconic frill and horns — what were they really used for?',tag:'science'},
-      {id:'FMnhZTGR-Kk',title:'Triceratops vs T. Rex',         desc:'Fossil evidence of real battles between these two iconic Cretaceous giants.',tag:'fossil'},
-      {id:'p4jK0ZRuCeo',title:'Walking with Dinosaurs: Tric',  desc:'Stunning documentary footage of Triceratops behavior in the late Cretaceous.',tag:'doc'},
-      {id:'dDH-mMvPpYM',title:'Triceratops Facts & Discovery', desc:'Everything we know — from fossil discovery to behavioral science.',tag:'fact'},
+      {id:'H0r_6yJDZMA',title:'Triceratops: Horns & Frills',desc:'The science behind the iconic frill and horns — what were they really used for?',tag:'science'},
+      {id:'FMnhZTGR-Kk',title:'Triceratops vs T. Rex',desc:'Fossil evidence of real battles between these two iconic Cretaceous giants.',tag:'fossil'},
+      {id:'p4jK0ZRuCeo',title:'Walking with Dinosaurs: Triceratops',desc:'Stunning documentary footage of Triceratops behavior in the late Cretaceous.',tag:'doc'},
+      {id:'dDH-mMvPpYM',title:'Triceratops Facts & Discovery',desc:'Everything we know — from fossil discovery to behavioral science.',tag:'fact'},
     ]
   },
   {
@@ -359,27 +847,27 @@ const DINOS = [
     era:'jurassic', startMa:154, endMa:150, accentColor:'#5080ff', timeline:30,
     cardDesc:'One of the tallest land animals ever — could peer over a 4-story building while stripping treetops that no rival dinosaur could reach.',
     stats:[
-      {label:'Length', value:'26 m',    compareKey:'length', compareVal:26, icon:'📏'},
-      {label:'Weight', value:'56 tons', compareKey:'weight', compareVal:56, icon:'⚖️'},
-      {label:'Speed',  value:'~15 km/h',compareKey:'speed',  compareVal:15, icon:'⚡'},
-      {label:'Height', value:'13 m',    compareKey:'height', compareVal:13, icon:'📐'},
+      {label:'Length',value:'26 m',compareKey:'length',compareVal:26,icon:'📏'},
+      {label:'Weight',value:'56 tons',compareKey:'weight',compareVal:56,icon:'⚖️'},
+      {label:'Speed',value:'~15 km/h',compareKey:'speed',compareVal:15,icon:'⚡'},
+      {label:'Height',value:'13 m',compareKey:'height',compareVal:13,icon:'📐'},
     ],
     hotspots:[
-      {x:'28%',y:'6%', icon:'🦒',label:'9-Meter Neck',  fact:'Longer than a school bus — let it graze at heights inaccessible to every rival. Vertebrae were hollow to reduce weight.'},
-      {x:'38%',y:'38%',icon:'🫀',label:'Giant Heart',   fact:'Pumping blood 9 meters upward required a heart estimated at 400 kg — the largest of any known land animal ever.'},
-      {x:'62%',y:'55%',icon:'🦷',label:'Spatula Teeth', fact:'Chisel-shaped teeth raked leaves like a comb. Never chewed — gastroliths (swallowed stones) ground food in the gizzard.'},
-      {x:'70%',y:'72%',icon:'🐘',label:'Pillar Legs',   fact:'Front legs longer than hind legs — hence "arm lizard." Columnar legs bore 56 tons like architectural pillars.'},
+      {x:'28%',y:'6%',icon:'🦒',label:'9-Meter Neck',fact:'Longer than a school bus — let it graze at heights inaccessible to every rival. Vertebrae were hollow to reduce weight.'},
+      {x:'38%',y:'38%',icon:'🫀',label:'Giant Heart',fact:'Pumping blood 9 meters upward required a heart estimated at 400 kg — the largest of any known land animal ever.'},
+      {x:'62%',y:'55%',icon:'🦷',label:'Spatula Teeth',fact:'Chisel-shaped teeth raked leaves like a comb. Never chewed — gastroliths (swallowed stones) ground food in the gizzard.'},
+      {x:'70%',y:'72%',icon:'🐘',label:'Pillar Legs',fact:'Front legs longer than hind legs — hence "arm lizard." Columnar legs bore 56 tons like architectural pillars.'},
     ],
     facts:[
-      {icon:'💨',label:'Air Sacs',    text:'Pneumatic air sacs threaded through vertebrae kept blood oxygenated despite the enormous distance from lungs to brain.'},
+      {icon:'💨',label:'Air Sacs',text:'Pneumatic air sacs threaded through vertebrae kept blood oxygenated despite the enormous distance from lungs to brain.'},
       {icon:'🥚',label:'Football Eggs',text:'Despite weighing 56 tons as an adult, it hatched from eggs the size of a football — growing 50,000× its hatch weight.'},
-      {icon:'🌿',label:'Daily Diet',  text:'Consumed an estimated 200–400 kg of plant matter every single day — a grand piano\'s weight in vegetation per 24 hours.'},
+      {icon:'🌿',label:'Daily Diet',text:'Consumed an estimated 200–400 kg of plant matter every single day — a grand piano\'s weight in vegetation per 24 hours.'},
     ],
     videos:[
       {id:'QTuAL0yxFpY',title:'Brachiosaurus: Giant of the Jurassic',desc:'How did the largest land animals in history survive and thrive?',tag:'doc'},
-      {id:'YCvVCLXrWvE',title:'How Brachiosaurus Fed',              desc:'The mechanics behind feeding a 56-ton animal with a 9-meter neck.',tag:'science'},
-      {id:'mHak2UmQfaM',title:'Jurassic Giants Documentary',        desc:'A sweeping look at the enormous plant-eating giants of the Jurassic world.',tag:'doc'},
-      {id:'FMnhZTGR-Kk',title:'Sauropod Giants — How Big?',         desc:'Scientists calculate how enormous long-necked sauropods actually were.',tag:'science'},
+      {id:'YCvVCLXrWvE',title:'How Brachiosaurus Fed',desc:'The mechanics behind feeding a 56-ton animal with a 9-meter neck.',tag:'science'},
+      {id:'mHak2UmQfaM',title:'Jurassic Giants Documentary',desc:'A sweeping look at the enormous plant-eating giants of the Jurassic world.',tag:'doc'},
+      {id:'FMnhZTGR-Kk',title:'Sauropod Giants — How Big?',desc:'Scientists calculate how enormous long-necked sauropods actually were.',tag:'science'},
     ]
   },
   {
@@ -389,27 +877,27 @@ const DINOS = [
     era:'cretaceous', startMa:75, endMa:71, accentColor:'#ffa020', timeline:75,
     cardDesc:'Not the human-sized monster from movies — real Velociraptors were turkey-sized, fully feathered, and disturbingly intelligent hunters.',
     stats:[
-      {label:'Length',     value:'2 m',     compareKey:'length', compareVal:2,    icon:'📏'},
-      {label:'Weight',     value:'15 kg',   compareKey:'weight', compareVal:0.015,icon:'⚖️'},
-      {label:'Speed',      value:'~40 km/h',compareKey:'speed',  compareVal:40,   icon:'⚡'},
-      {label:'Sickle Claw',value:'6.5 cm',  compareKey:'claw',   compareVal:6.5,  icon:'🌙'},
+      {label:'Length',value:'2 m',compareKey:'length',compareVal:2,icon:'📏'},
+      {label:'Weight',value:'15 kg',compareKey:'weight',compareVal:0.015,icon:'⚖️'},
+      {label:'Speed',value:'~40 km/h',compareKey:'speed',compareVal:40,icon:'⚡'},
+      {label:'Sickle Claw',value:'6.5 cm',compareKey:'claw',compareVal:6.5,icon:'🌙'},
     ],
     hotspots:[
-      {x:'32%',y:'20%',icon:'🧠',label:'Big Brain',   fact:'One of the largest brain-to-body ratios of any dinosaur — comparable to modern ravens in problem-solving.'},
+      {x:'32%',y:'20%',icon:'🧠',label:'Big Brain',fact:'One of the largest brain-to-body ratios of any dinosaur — comparable to modern ravens in problem-solving.'},
       {x:'48%',y:'42%',icon:'🪶',label:'Full Feathers',fact:'Fossil quill knobs on arm bones prove it was fully feathered — it looked like a ground-running hawk.'},
-      {x:'58%',y:'65%',icon:'🌙',label:'Sickle Claw', fact:'The infamous 6.5 cm sickle claw pinned prey like a hawk\'s talon — not for slashing as movies suggest.'},
-      {x:'78%',y:'40%',icon:'⚡',label:'Rigid Tail',  fact:'Ossified tendons made the tail rigid, acting as a gyroscope for near-instant direction changes at 40 km/h.'},
+      {x:'58%',y:'65%',icon:'🌙',label:'Sickle Claw',fact:'The infamous 6.5 cm sickle claw pinned prey like a hawk\'s talon — not for slashing as movies suggest.'},
+      {x:'78%',y:'40%',icon:'⚡',label:'Rigid Tail',fact:'Ossified tendons made the tail rigid, acting as a gyroscope for near-instant direction changes at 40 km/h.'},
     ],
     facts:[
       {icon:'🤝',label:'Fighting Dinosaurs',text:'"The Fighting Dinosaurs" fossil from Mongolia captured a Velociraptor and Protoceratops locked in mortal combat, buried alive by a sand dune.'},
-      {icon:'🎬',label:'Movie Myth',        text:'Jurassic Park raptors were modeled on Deinonychus, a much larger cousin. Real Velociraptors stood barely knee-high on an adult human.'},
-      {icon:'🌏',label:'Desert Hunter',     text:'Velociraptors lived in the harsh Gobi Desert of Mongolia — adapted to extreme heat, not lush jungle.'},
+      {icon:'🎬',label:'Movie Myth',text:'Jurassic Park raptors were modeled on Deinonychus, a much larger cousin. Real Velociraptors stood barely knee-high on an adult human.'},
+      {icon:'🌏',label:'Desert Hunter',text:'Velociraptors lived in the harsh Gobi Desert of Mongolia — adapted to extreme heat, not lush jungle.'},
     ],
     videos:[
-      {id:'wEBTlwWc2HI',title:'The Real Velociraptor',       desc:'The truth behind the Jurassic Park legend — what Velociraptor actually looked like and how it hunted.',tag:'science'},
+      {id:'wEBTlwWc2HI',title:'The Real Velociraptor',desc:'The truth behind the Jurassic Park legend — what Velociraptor actually looked like and how it hunted.',tag:'science'},
       {id:'dWbOKFyBzXk',title:'Velociraptor: Feathered Hunter',desc:'How modern paleontology revealed it was covered in feathers and far more bird-like than imagined.',tag:'science'},
-      {id:'5F_-JgSZwCU',title:'Prehistoric Planet: Raptor',  desc:'Stunning CGI documentary showing Velociraptors hunting in Late Cretaceous Mongolia.',tag:'doc'},
-      {id:'xd1icRU5axk',title:'Velociraptor Myths Busted',   desc:'Separating Hollywood fiction from scientific truth about one of paleontology\'s most famous dinosaurs.',tag:'fact'},
+      {id:'5F_-JgSZwCU',title:'Prehistoric Planet: Raptor',desc:'Stunning CGI documentary showing Velociraptors hunting in Late Cretaceous Mongolia.',tag:'doc'},
+      {id:'xd1icRU5axk',title:'Velociraptor Myths Busted',desc:'Separating Hollywood fiction from scientific truth about one of paleontology\'s most famous dinosaurs.',tag:'fact'},
     ]
   },
   {
@@ -419,27 +907,27 @@ const DINOS = [
     era:'jurassic', startMa:155, endMa:150, accentColor:'#d4cc40', timeline:25,
     cardDesc:'Armored with 17 blood-flushing dorsal plates and four 1-meter tail spikes — the "thagomizer" — capable of shattering an Allosaurus\'s leg bone.',
     stats:[
-      {label:'Length', value:'9 m',      compareKey:'length', compareVal:9, icon:'📏'},
-      {label:'Weight', value:'5 tons',   compareKey:'weight', compareVal:5, icon:'⚖️'},
-      {label:'Speed',  value:'~7 km/h',  compareKey:'speed',  compareVal:7, icon:'⚡'},
-      {label:'Brain',  value:'80 g',     compareKey:'brain',  compareVal:80,icon:'🧠'},
+      {label:'Length',value:'9 m',compareKey:'length',compareVal:9,icon:'📏'},
+      {label:'Weight',value:'5 tons',compareKey:'weight',compareVal:5,icon:'⚖️'},
+      {label:'Speed',value:'~7 km/h',compareKey:'speed',compareVal:7,icon:'⚡'},
+      {label:'Brain',value:'80 g',compareKey:'brain',compareVal:80,icon:'🧠'},
     ],
     hotspots:[
       {x:'42%',y:'12%',icon:'🔺',label:'Dorsal Plates',fact:'17 bony plates laced with blood vessels — could flush bright red for thermoregulation, threat display, and mating signals.'},
-      {x:'72%',y:'55%',icon:'🗡️',label:'Thagomizer',   fact:'Four 1-meter tail spikes officially called a "thagomizer" — a term coined by Gary Larson in 1982, now used in real paleontology!'},
-      {x:'30%',y:'48%',icon:'🧠',label:'Walnut Brain',  fact:'Brain weighed only ~80 grams for a bus-sized animal. A nerve cluster in the hips processed tail movements independently.'},
-      {x:'20%',y:'60%',icon:'🌿',label:'Low Grazer',    fact:'Beak-like mouth sat close to the ground, ideal for cropping low-growing ferns in lush Jurassic floodplains.'},
+      {x:'72%',y:'55%',icon:'🗡️',label:'Thagomizer',fact:'Four 1-meter tail spikes officially called a "thagomizer" — a term coined by Gary Larson in 1982, now used in real paleontology!'},
+      {x:'30%',y:'48%',icon:'🧠',label:'Walnut Brain',fact:'Brain weighed only ~80 grams for a bus-sized animal. A nerve cluster in the hips processed tail movements independently.'},
+      {x:'20%',y:'60%',icon:'🌿',label:'Low Grazer',fact:'Beak-like mouth sat close to the ground, ideal for cropping low-growing ferns in lush Jurassic floodplains.'},
     ],
     facts:[
       {icon:'🥊',label:'Allosaurus Battles',text:'Fossil evidence: Allosaurus vertebrae with Stegosaurus spike punctures and Stegosaurus plates bearing confirmed Allosaurus bite marks.'},
-      {icon:'🔴',label:'Color Flushing',   text:'The plates\' dense vascular network could flush red with blood — a living emotional display visible from great distances.'},
-      {icon:'🧬',label:'Tail High',        text:'We now know Stegosaurus held its tail high and could swing it laterally with devastating force — not dragging lizard-style.'},
+      {icon:'🔴',label:'Color Flushing',text:'The plates\' dense vascular network could flush red with blood — a living emotional display visible from great distances.'},
+      {icon:'🧬',label:'Tail High',text:'We now know Stegosaurus held its tail high and could swing it laterally with devastating force — not dragging lizard-style.'},
     ],
     videos:[
       {id:'zHSBSCfUXrE',title:'Stegosaurus: Plates & Spikes',desc:'What were those spectacular dorsal plates really for? Scientists investigate.',tag:'science'},
-      {id:'BPxXc2BGKOU',title:'Stegosaurus vs Allosaurus',   desc:'Fossil evidence reveals the epic battles between these two Jurassic giants.',tag:'fossil'},
-      {id:'QTuAL0yxFpY',title:'Jurassic World Documentary',  desc:'An in-depth look at the Jurassic ecosystem and Stegosaurus\' place in it.',tag:'doc'},
-      {id:'VqpFQyMJI8g',title:'Stegosaurus Brain Mystery',   desc:'How did a dinosaur with a walnut-sized brain survive for millions of years?',tag:'fact'},
+      {id:'BPxXc2BGKOU',title:'Stegosaurus vs Allosaurus',desc:'Fossil evidence reveals the epic battles between these two Jurassic giants.',tag:'fossil'},
+      {id:'QTuAL0yxFpY',title:'Jurassic World Documentary',desc:'An in-depth look at the Jurassic ecosystem and Stegosaurus\' place in it.',tag:'doc'},
+      {id:'VqpFQyMJI8g',title:'Stegosaurus Brain Mystery',desc:'How did a dinosaur with a walnut-sized brain survive for millions of years?',tag:'fact'},
     ]
   },
   {
@@ -449,78 +937,63 @@ const DINOS = [
     era:'cretaceous', startMa:86, endMa:84, accentColor:'#a050ff', timeline:60,
     cardDesc:'A pterosaur cousin of dinosaurs that ruled Cretaceous skies on 7-meter wings, soaring vast ocean thermals like a giant prehistoric kite.',
     stats:[
-      {label:'Wingspan',value:'7 m',    compareKey:'length', compareVal:7,    icon:'📏'},
-      {label:'Weight',  value:'20 kg',  compareKey:'weight', compareVal:0.02, icon:'⚖️'},
-      {label:'Speed',   value:'~30 km/h',compareKey:'speed', compareVal:30,   icon:'⚡'},
-      {label:'Crest',   value:'1 m+',   compareKey:'crest',  compareVal:1,    icon:'📡'},
+      {label:'Wingspan',value:'7 m',compareKey:'length',compareVal:7,icon:'📏'},
+      {label:'Weight',value:'20 kg',compareKey:'weight',compareVal:0.02,icon:'⚖️'},
+      {label:'Speed',value:'~30 km/h',compareKey:'speed',compareVal:30,icon:'⚡'},
+      {label:'Crest',value:'1 m+',compareKey:'crest',compareVal:1,icon:'📡'},
     ],
     hotspots:[
-      {x:'50%',y:'22%',icon:'🪶',label:'Hollow Bones',  fact:'The entire skeleton weighed under 2 kg despite a 7-meter wingspan. Bones were hollow and strut-braced like carbon fiber.'},
-      {x:'15%',y:'38%',icon:'🪁',label:'Wing Membrane', fact:'Wings formed by a dramatically elongated fourth finger with a membrane to the ankle — unique in all vertebrate evolution.'},
-      {x:'56%',y:'14%',icon:'📡',label:'Head Crest',    fact:'The dramatic bony crest balanced the long beak as a flight rudder and signaled species identity during mating.'},
-      {x:'25%',y:'50%',icon:'🎣',label:'Pelican Beak',  fact:'A toothless 1.8-meter beak scooped fish from the ocean surface at speed — like a pelican, but on a far grander scale.'},
+      {x:'50%',y:'22%',icon:'🪶',label:'Hollow Bones',fact:'The entire skeleton weighed under 2 kg despite a 7-meter wingspan. Bones were hollow and strut-braced like carbon fiber.'},
+      {x:'15%',y:'38%',icon:'🪁',label:'Wing Membrane',fact:'Wings formed by a dramatically elongated fourth finger with a membrane to the ankle — unique in all vertebrate evolution.'},
+      {x:'56%',y:'14%',icon:'📡',label:'Head Crest',fact:'The dramatic bony crest balanced the long beak as a flight rudder and signaled species identity during mating.'},
+      {x:'25%',y:'50%',icon:'🎣',label:'Pelican Beak',fact:'A toothless 1.8-meter beak scooped fish from the ocean surface at speed — like a pelican, but on a far grander scale.'},
     ],
     facts:[
       {icon:'✈️',label:'Expert Soarer',text:'Rode ocean thermals for hours with minimal wingbeats — covering vast distances over the Western Interior Seaway.'},
-      {icon:'🤱',label:'Parenting',    text:'Fossil evidence suggests pterosaurs incubated eggs and raised young over extended periods — more bird-like than reptilian.'},
+      {icon:'🤱',label:'Parenting',text:'Fossil evidence suggests pterosaurs incubated eggs and raised young over extended periods — more bird-like than reptilian.'},
       {icon:'❌',label:'Not a Dinosaur',text:'Pteranodon was a pterosaur — close kin to dinosaurs but not one. True dinosaurs have legs directly beneath their bodies.'},
     ],
     videos:[
       {id:'Ic1Z3Z6LDGs',title:'Pteranodon: King of the Skies',desc:'How did the largest flying animals in history dominate the Cretaceous skies?',tag:'doc'},
-      {id:'FNHGIQiTl7E',title:'How Did Pterosaurs Fly?',       desc:'The physics and biology of pterosaur flight — how a 7-meter wingspan creature got airborne.',tag:'science'},
-      {id:'zHSBSCfUXrE',title:'Pterosaurs: Not Dinosaurs',     desc:'The science of pterosaurs — what makes them different from true dinosaurs.',tag:'science'},
-      {id:'p4jK0ZRuCeo',title:'Prehistoric Skies Documentary', desc:'A stunning look at flying reptiles of the Mesozoic.',tag:'doc'},
+      {id:'FNHGIQiTl7E',title:'How Did Pterosaurs Fly?',desc:'The physics and biology of pterosaur flight — how a 7-meter wingspan creature got airborne.',tag:'science'},
+      {id:'zHSBSCfUXrE',title:'Pterosaurs: Not Dinosaurs',desc:'The science of pterosaurs — what makes them different from true dinosaurs.',tag:'science'},
+      {id:'p4jK0ZRuCeo',title:'Prehistoric Skies Documentary',desc:'A stunning look at flying reptiles of the Mesozoic.',tag:'doc'},
     ]
   },
 ];
 
-/* =============================================================
-   COMPARE METRICS  (no changes needed here normally)
-   ============================================================= */
-const METRICS = {
-  speed:  {label:'Speed Comparison',  sub:'Fastest to slowest',   icon:'⚡', getVal:d=>d.stats.find(s=>s.compareKey==='speed')?.compareVal??0,  getDisp:d=>d.stats.find(s=>s.compareKey==='speed')?.value??'?',  extra:[{name:'Usain Bolt',      val:45,      disp:'45 km/h', note:'World record sprint',   icon:'🏃'}]},
-  weight: {label:'Weight Comparison', sub:'Heaviest to lightest', icon:'⚖️', getVal:d=>{const s=d.stats.find(x=>x.compareKey==='weight');if(!s)return 0;return s.value.includes('kg')?parseFloat(s.value)/1000:parseFloat(s.value);}, getDisp:d=>d.stats.find(s=>s.compareKey==='weight')?.value??'?', extra:[{name:'Average human',   val:0.00009, disp:'~90 kg',  note:'Average adult',        icon:'🧍'}]},
-  length: {label:'Size Comparison',   sub:'Largest to smallest',  icon:'📏', getVal:d=>d.stats.find(s=>s.compareKey==='length')?.compareVal??0,  getDisp:d=>d.stats.find(s=>s.compareKey==='length')?.value??'?', extra:[{name:'Average human',   val:1.75,    disp:'1.75 m',  note:'Average adult height', icon:'🧍'}]},
-  bite:   {label:'Bite Force',        sub:'Strongest to weakest', icon:'🦷', getVal:d=>d.stats.find(s=>s.compareKey==='bite')?.compareVal??0,    getDisp:d=>d.stats.find(s=>s.compareKey==='bite')?.value??'N/A', extra:[{name:'Human bite',       val:720,     disp:'~720 N',  note:'Average adult',        icon:'🧍'}]},
+const METRICS={
+  speed:{label:'Speed Comparison',sub:'Fastest to slowest',icon:'⚡',getVal:d=>d.stats.find(s=>s.compareKey==='speed')?.compareVal??0,getDisp:d=>d.stats.find(s=>s.compareKey==='speed')?.value??'?',extra:[{name:'Usain Bolt',val:45,disp:'45 km/h',note:'World record sprint',icon:'🏃'}]},
+  weight:{label:'Weight Comparison',sub:'Heaviest to lightest',icon:'⚖️',getVal:d=>{const s=d.stats.find(x=>x.compareKey==='weight');if(!s)return 0;return s.value.includes('kg')?parseFloat(s.value)/1000:parseFloat(s.value);},getDisp:d=>d.stats.find(s=>s.compareKey==='weight')?.value??'?',extra:[{name:'Average human',val:0.00009,disp:'~90 kg',note:'Average adult',icon:'🧍'}]},
+  length:{label:'Size Comparison',sub:'Largest to smallest',icon:'📏',getVal:d=>d.stats.find(s=>s.compareKey==='length')?.compareVal??0,getDisp:d=>d.stats.find(s=>s.compareKey==='length')?.value??'?',extra:[{name:'Average human',val:1.75,disp:'1.75 m',note:'Average adult height',icon:'🧍'}]},
+  bite:{label:'Bite Force',sub:'Strongest to weakest',icon:'🦷',getVal:d=>d.stats.find(s=>s.compareKey==='bite')?.compareVal??0,getDisp:d=>d.stats.find(s=>s.compareKey==='bite')?.value??'N/A',extra:[{name:'Human bite',val:720,disp:'~720 N',note:'Average adult',icon:'🧍'}]},
 };
 
-/* =============================================================
-   APP STATE
-   ============================================================= */
-let currentDino = null;
+let currentDino=null;
 
-/* =============================================================
-   NAVIGATION
-   ============================================================= */
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('grid-view').classList.remove('active');
-  if (id === 'grid') document.getElementById('grid-view').classList.add('active');
+  if(id==='grid')document.getElementById('grid-view').classList.add('active');
   else document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-function showGrid() { showPage('grid'); }
+function showGrid(){showPage('grid');}
 
-function switchTab(tab, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+function switchTab(tab,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
 }
 
-/* =============================================================
-   GRID
-   ============================================================= */
-function renderGrid() {
-  const grid = document.getElementById('grid-view');
-  grid.innerHTML = DINOS.map(d => `
+function renderGrid(){
+  const grid=document.getElementById('grid-view');
+  grid.innerHTML=DINOS.map(d=>`
     <div class="dino-card" onclick="showDetail('${d.id}')" style="--accent:${d.accentColor}">
       <div class="card-img-wrap">
-        <img
-          src="${cardImg(d.id)}"
-          alt="${d.fullName}"
-          onerror="this.parentNode.innerHTML='<div class=card-img-fallback style=--accent:${d.accentColor}>${FALLBACK_EMOJI[d.id] || '🦕'}<span>Image coming soon</span></div><span class=card-period-chip>${d.periodShort}</span>'"
-        >
+        <img src="${cardImg(d.id)}" alt="${d.fullName}"
+             onerror="this.parentNode.innerHTML='<div class=card-img-fallback style=--accent:${d.accentColor}>${FALLBACK_EMOJI[d.id]||'🦕'}<span>Image coming soon</span></div><span class=card-period-chip>${d.periodShort}</span>'">
         <span class="card-period-chip">${d.periodShort}</span>
       </div>
       <div class="card-info">
@@ -533,94 +1006,95 @@ function renderGrid() {
   `).join('');
 }
 
-/* =============================================================
-   DETAIL
-   ============================================================= */
-function showDetail(id) {
-  const d = DINOS.find(x => x.id === id);
-  if (!d) return;
-  currentDino = d;
+function showDetail(id){
+  const d=DINOS.find(x=>x.id===id);
+  if(!d)return;
+  currentDino=d;
+  document.getElementById('detail-name').textContent=d.fullName;
+  document.getElementById('detail-meaning').textContent=d.meaning;
+  switchTab('info',document.querySelector('.tab-btn'));
 
-  document.getElementById('detail-name').textContent = d.fullName;
-  document.getElementById('detail-meaning').textContent = d.meaning;
+  // Scene
+  const wrap=document.getElementById('scene-img-wrap');
+  wrap.innerHTML=`<img class="scene-img" src="${sceneImg(d.id)}" alt="${d.fullName}"
+    onerror="this.parentNode.innerHTML='<div class=scene-fallback style=--accent:${d.accentColor}>${FALLBACK_EMOJI[d.id]||'🦕'}</div>'">`;
 
-  switchTab('info', document.querySelector('.tab-btn'));
-
-  // ── Scene image ──
-  const wrap = document.getElementById('scene-img-wrap');
-  wrap.innerHTML = `
-    <img
-      class="scene-img"
-      src="${sceneImg(d.id)}"
-      alt="${d.fullName}"
-      onerror="this.parentNode.innerHTML='<div class=scene-fallback style=--accent:${d.accentColor}>${FALLBACK_EMOJI[d.id] || '🦕'}</div>'"
-    >
-  `;
-
-  // ── Stats ──
-  document.getElementById('stats-grid').innerHTML = d.stats.map(s => {
-    const hasC = Object.keys(METRICS).includes(s.compareKey);
-    return `
-      <div class="stat-box" ${hasC ? `onclick="showCompare('${s.compareKey}')"` : ''}>
-        ${hasC ? '<span class="compare-hint">Compare ↗</span>' : ''}
-        <div class="stat-label">${s.icon} ${s.label}</div>
-        <div class="stat-value">${s.value}</div>
-      </div>`;
+  // Stats
+  document.getElementById('stats-grid').innerHTML=d.stats.map(s=>{
+    const hasC=Object.keys(METRICS).includes(s.compareKey);
+    return`<div class="stat-box" ${hasC?`onclick="showCompare('${s.compareKey}')"`:''}>${hasC?'<span class="compare-hint">Compare ↗</span>':''}<div class="stat-label">${s.icon} ${s.label}</div><div class="stat-value">${s.value}</div></div>`;
   }).join('');
 
-  // ── Timeline mini ──
-  document.getElementById('tl-fill').style.width = d.timeline + '%';
-  document.getElementById('tl-marker').style.left = d.timeline + '%';
-  document.getElementById('tl-section-btn').onclick = () => showTimeline();
+  // Timeline
+  document.getElementById('tl-fill').style.width=d.timeline+'%';
+  document.getElementById('tl-marker').style.left=d.timeline+'%';
+  document.getElementById('tl-section-btn').onclick=()=>showTimeline();
 
-  // ── Fact cards ──
-  document.getElementById('fact-cards').innerHTML = d.facts.map(f => `
-    <div class="fact-card">
-      <span class="fc-icon">${f.icon}</span>
-      <div class="fc-text"><h4>${f.label}</h4><p>${f.text}</p></div>
-    </div>
-  `).join('');
+  // Fact cards
+  document.getElementById('fact-cards').innerHTML=d.facts.map(f=>`
+    <div class="fact-card"><span class="fc-icon">${f.icon}</span>
+    <div class="fc-text"><h4>${f.label}</h4><p>${f.text}</p></div></div>`).join('');
 
-  // ── Hotspots ──
-  const scene = document.getElementById('dino-scene');
-  scene.querySelectorAll('.hotspot, .fact-popup').forEach(el => el.remove());
-  d.hotspots.forEach(h => {
-    const btn = document.createElement('div');
-    btn.className = 'hotspot';
-    btn.style.cssText = `left:${h.x};top:${h.y};transform:translate(-50%,-50%);border-color:${d.accentColor};color:${d.accentColor};background:${d.accentColor}22`;
-    btn.innerHTML = h.icon;
-
-    const pop = document.createElement('div');
-    pop.className = 'fact-popup';
-    pop.style.borderColor = d.accentColor + '88';
-    pop.innerHTML = `<span class="fp-icon">${h.icon}</span><h4>${h.label}</h4><p>${h.fact}</p>`;
-
-    const lx = parseFloat(h.x), ty = parseFloat(h.y);
-    if (lx > 55) { pop.style.right = (100-lx+5)+'%'; pop.style.left = 'auto'; }
-    else { pop.style.left = (lx+5)+'%'; }
-    if (ty > 52) { pop.style.bottom = (100-ty+5)+'%'; pop.style.top = 'auto'; }
-    else { pop.style.top = (ty+5)+'%'; }
-
-    btn.addEventListener('click', e => {
+  // Hotspots
+  const scene=document.getElementById('dino-scene');
+  scene.querySelectorAll('.hotspot,.fact-popup').forEach(el=>el.remove());
+  d.hotspots.forEach(h=>{
+    const btn=document.createElement('div');
+    btn.className='hotspot';
+    btn.style.cssText=`left:${h.x};top:${h.y};transform:translate(-50%,-50%);border-color:${d.accentColor};color:${d.accentColor};background:${d.accentColor}22`;
+    btn.innerHTML=h.icon;
+    const pop=document.createElement('div');
+    pop.className='fact-popup';
+    pop.style.borderColor=d.accentColor+'88';
+    pop.innerHTML=`<span class="fp-icon">${h.icon}</span><h4>${h.label}</h4><p>${h.fact}</p>`;
+    const lx=parseFloat(h.x),ty=parseFloat(h.y);
+    if(lx>55){pop.style.right=(100-lx+5)+'%';pop.style.left='auto';}
+    else pop.style.left=(lx+5)+'%';
+    if(ty>52){pop.style.bottom=(100-ty+5)+'%';pop.style.top='auto';}
+    else pop.style.top=(ty+5)+'%';
+    btn.addEventListener('click',e=>{
       e.stopPropagation();
-      const was = btn.classList.contains('active');
-      scene.querySelectorAll('.hotspot').forEach(b => b.classList.remove('active'));
-      scene.querySelectorAll('.fact-popup').forEach(p => p.classList.remove('show'));
-      if (!was) { btn.classList.add('active'); pop.classList.add('show'); }
+      const was=btn.classList.contains('active');
+      scene.querySelectorAll('.hotspot').forEach(b=>b.classList.remove('active'));
+      scene.querySelectorAll('.fact-popup').forEach(p=>p.classList.remove('show'));
+      if(!was){btn.classList.add('active');pop.classList.add('show');}
     });
     scene.appendChild(btn);
     scene.appendChild(pop);
   });
-  scene.onclick = () => {
-    scene.querySelectorAll('.hotspot').forEach(b => b.classList.remove('active'));
-    scene.querySelectorAll('.fact-popup').forEach(p => p.classList.remove('show'));
+  scene.onclick=()=>{
+    scene.querySelectorAll('.hotspot').forEach(b=>b.classList.remove('active'));
+    scene.querySelectorAll('.fact-popup').forEach(p=>p.classList.remove('show'));
   };
 
-  // ── Videos ──
-  const tagL = {doc:'Documentary', science:'Science', fact:'Fun Facts', fossil:'Fossil Evidence'};
-  const tagC = {doc:'tag-doc', science:'tag-science', fact:'tag-fact', fossil:'tag-fossil'};
-  document.getElementById('videos-intro').textContent = `Curated videos about ${d.fullName} — documentaries, science explainers, and fossil discoveries.`;
-  document.getElementById('video-grid').innerHTML = d.videos.map(v => `
+  // Skeleton tab
+  const sk=SKELETON_DATA[d.id];
+  if(sk){
+    document.getElementById('skeleton-svg-wrap').innerHTML=SKELETONS[d.id]?SKELETONS[d.id](d.accentColor):'';
+    document.getElementById('skeleton-scale-bar').innerHTML=`
+      <div class="scale-line" style="width:${sk.scalePx}px"></div>
+      <span class="scale-label">${sk.scaleM}</span>`;
+    document.getElementById('bone-legend').innerHTML=sk.boneLegend.map(l=>`
+      <div class="bone-leg-item">
+        <div class="bone-leg-dot" style="background:${l.color}"></div>${l.label}
+      </div>`).join('');
+    document.getElementById('skeleton-facts').innerHTML=`
+      <h3>🦴 Bone-by-Bone Breakdown</h3>
+      ${sk.facts.map(f=>`
+        <div class="skel-fact">
+          <div class="skel-fact-head">
+            <span class="skel-fact-icon">${f.icon}</span>
+            <span class="skel-fact-title">${f.title}</span>
+          </div>
+          <p>${f.text}</p>
+        </div>`).join('')}`;
+  }
+
+  // Videos
+  const tagL={doc:'Documentary',science:'Science',fact:'Fun Facts',fossil:'Fossil Evidence'};
+  const tagC={doc:'tag-doc',science:'tag-science',fact:'tag-fact',fossil:'tag-fossil'};
+  document.getElementById('videos-intro').textContent=`Curated videos about ${d.fullName} — documentaries, science explainers, and fossil discoveries.`;
+  document.getElementById('video-grid').innerHTML=d.videos.map(v=>`
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1"
@@ -628,71 +1102,50 @@ function showDetail(id) {
       </div>
       <div class="video-info">
         <span class="video-tag ${tagC[v.tag]}">${tagL[v.tag]}</span>
-        <h3>${v.title}</h3>
-        <p>${v.desc}</p>
+        <h3>${v.title}</h3><p>${v.desc}</p>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 
   showPage('detail-view');
 }
 
-/* =============================================================
-   COMPARE
-   ============================================================= */
-function showCompare(key) {
-  const m = METRICS[key];
-  if (!m) return;
-  document.getElementById('cmp-title').textContent = m.label;
-  document.getElementById('cmp-sub').textContent = m.sub;
-  document.getElementById('cmp-metric').textContent = `${m.icon} ${m.label}`;
-  document.getElementById('cmp-back').onclick = () => showPage('detail-view');
-
-  let rows = DINOS.map(d => ({d, val: m.getVal(d), disp: m.getDisp(d)}));
-  rows.sort((a,b) => b.val - a.val);
-  const maxVal = Math.max(...rows.map(r=>r.val), ...(m.extra||[]).map(e=>e.val));
-
-  const cont = document.getElementById('cmp-rows');
-  cont.innerHTML = '';
-  rows.forEach((r, i) => {
-    const isHL = currentDino && r.d.id === currentDino.id;
-    const pct = maxVal > 0 ? (r.val / maxVal * 100) : 0;
-    const div = document.createElement('div');
-    div.className = 'cmp-row' + (isHL ? ' hl' : '');
-    div.innerHTML = `
-      <div class="cmp-rank">#${i+1}</div>
-      <div class="cmp-thumb">
-        <img src="${cardImg(r.d.id)}" alt="${r.d.fullName}"
-             onerror="this.parentNode.innerHTML='<div class=cmp-thumb-fallback>${FALLBACK_EMOJI[r.d.id]||'🦕'}</div>'">
-      </div>
+function showCompare(key){
+  const m=METRICS[key];if(!m)return;
+  document.getElementById('cmp-title').textContent=m.label;
+  document.getElementById('cmp-sub').textContent=m.sub;
+  document.getElementById('cmp-metric').textContent=`${m.icon} ${m.label}`;
+  document.getElementById('cmp-back').onclick=()=>showPage('detail-view');
+  let rows=DINOS.map(d=>({d,val:m.getVal(d),disp:m.getDisp(d)}));
+  rows.sort((a,b)=>b.val-a.val);
+  const maxVal=Math.max(...rows.map(r=>r.val),...(m.extra||[]).map(e=>e.val));
+  const cont=document.getElementById('cmp-rows');cont.innerHTML='';
+  rows.forEach((r,i)=>{
+    const isHL=currentDino&&r.d.id===currentDino.id;
+    const pct=maxVal>0?(r.val/maxVal*100):0;
+    const div=document.createElement('div');
+    div.className='cmp-row'+(isHL?' hl':'');
+    div.innerHTML=`<div class="cmp-rank">#${i+1}</div>
+      <div class="cmp-thumb"><img src="${cardImg(r.d.id)}" alt="${r.d.fullName}"
+           onerror="this.parentNode.innerHTML='<div class=cmp-thumb-fallback>${FALLBACK_EMOJI[r.d.id]||'🦕'}</div>'"></div>
       <div class="cmp-info">
         <div class="cmp-name">${r.d.fullName}</div>
-        <div class="cmp-bar-row">
-          <div class="cmp-bar-bg">
-            <div class="cmp-bar-fill" style="width:${pct}%;background:linear-gradient(90deg,${r.d.accentColor}88,${r.d.accentColor})"></div>
-          </div>
-          <div class="cmp-val">${r.disp}</div>
-        </div>
+        <div class="cmp-bar-row"><div class="cmp-bar-bg">
+          <div class="cmp-bar-fill" style="width:${pct}%;background:linear-gradient(90deg,${r.d.accentColor}88,${r.d.accentColor})"></div>
+        </div><div class="cmp-val">${r.disp}</div></div>
         <div class="cmp-note">${r.d.period} · ${r.d.periodShort}</div>
       </div>`;
     cont.appendChild(div);
   });
-
-  (m.extra || []).forEach(ex => {
-    const pct = maxVal > 0 ? (ex.val / maxVal * 100) : 0;
-    const div = document.createElement('div');
-    div.className = 'cmp-row cmp-human';
-    div.innerHTML = `
-      <div class="cmp-rank">${ex.icon}</div>
+  (m.extra||[]).forEach(ex=>{
+    const pct=maxVal>0?(ex.val/maxVal*100):0;
+    const div=document.createElement('div');div.className='cmp-row cmp-human';
+    div.innerHTML=`<div class="cmp-rank">${ex.icon}</div>
       <div class="cmp-thumb"><div class="cmp-thumb-fallback">${ex.icon}</div></div>
       <div class="cmp-info">
         <div class="cmp-name" style="color:#a0c0ff">${ex.name}</div>
-        <div class="cmp-bar-row">
-          <div class="cmp-bar-bg">
-            <div class="cmp-bar-fill" style="width:${Math.max(pct,0.5)}%;background:linear-gradient(90deg,#3050a0,#6080ff)"></div>
-          </div>
-          <div class="cmp-val" style="color:#a0c0ff">${ex.disp}</div>
-        </div>
+        <div class="cmp-bar-row"><div class="cmp-bar-bg">
+          <div class="cmp-bar-fill" style="width:${Math.max(pct,0.5)}%;background:linear-gradient(90deg,#3050a0,#6080ff)"></div>
+        </div><div class="cmp-val" style="color:#a0c0ff">${ex.disp}</div></div>
         <div class="cmp-note">${ex.note}</div>
       </div>`;
     cont.appendChild(div);
@@ -700,93 +1153,54 @@ function showCompare(key) {
   showPage('compare-view');
 }
 
-/* =============================================================
-   TIMELINE
-   ============================================================= */
-function showTimeline() {
-  document.getElementById('tl-back').onclick = () => showPage('detail-view');
-  document.getElementById('tl-back-sub').textContent = currentDino
-    ? `${currentDino.fullName} highlighted · ${currentDino.periodShort}` : '';
-
-  const START = 252, RANGE = 252;
-  const p  = ma => ((START-ma)/RANGE*100).toFixed(2)+'%';
-  const pn = ma => (START-ma)/RANGE*100;
-
-  const eras = [
-    {label:'TRIASSIC',   start:252, end:201, color:'#50dc64'},
-    {label:'JURASSIC',   start:201, end:145, color:'#5080ff'},
-    {label:'CRETACEOUS', start:145, end:66,  color:'#ff6050'},
-    {label:'CENOZOIC',   start:66,  end:0,   color:'#a050a0'},
+function showTimeline(){
+  document.getElementById('tl-back').onclick=()=>showPage('detail-view');
+  document.getElementById('tl-back-sub').textContent=currentDino?`${currentDino.fullName} highlighted · ${currentDino.periodShort}`:'';
+  const START=252,RANGE=252;
+  const p=ma=>((START-ma)/RANGE*100).toFixed(2)+'%';
+  const pn=ma=>(START-ma)/RANGE*100;
+  const eras=[
+    {label:'TRIASSIC',start:252,end:201,color:'#50dc64'},
+    {label:'JURASSIC',start:201,end:145,color:'#5080ff'},
+    {label:'CRETACEOUS',start:145,end:66,color:'#ff6050'},
+    {label:'CENOZOIC',start:66,end:0,color:'#a050a0'},
   ];
-  const eraLbls = document.getElementById('era-labels');
-  eraLbls.innerHTML = '';
-  eras.forEach(e => {
-    const l=pn(e.start), w=pn(e.end)-l;
-    const d = document.createElement('div');
-    d.className = 'era-block';
-    d.style.cssText = `left:${l}%;width:${w}%;color:${e.color};border-color:${e.color}44;`;
-    d.textContent = e.label;
-    eraLbls.appendChild(d);
+  const eraLbls=document.getElementById('era-labels');eraLbls.innerHTML='';
+  eras.forEach(e=>{
+    const l=pn(e.start),w=pn(e.end)-l;
+    const d=document.createElement('div');d.className='era-block';
+    d.style.cssText=`left:${l}%;width:${w}%;color:${e.color};border-color:${e.color}44;`;
+    d.textContent=e.label;eraLbls.appendChild(d);
   });
-
-  const axis = document.getElementById('tl-axis');
-  axis.innerHTML = '<div class="tl-axis-line"></div>';
-  [252,225,200,175,150,125,100,75,50,25,0].forEach(ma => {
-    const t = document.createElement('div');
-    t.className = 'tl-tick';
-    t.style.left = p(ma);
-    t.innerHTML = `<div class="tl-tick-line"></div><div class="tl-tick-label">${ma} Ma</div>`;
+  const axis=document.getElementById('tl-axis');axis.innerHTML='<div class="tl-axis-line"></div>';
+  [252,225,200,175,150,125,100,75,50,25,0].forEach(ma=>{
+    const t=document.createElement('div');t.className='tl-tick';t.style.left=p(ma);
+    t.innerHTML=`<div class="tl-tick-line"></div><div class="tl-tick-label">${ma} Ma</div>`;
     axis.appendChild(t);
   });
-
-  const eraCol = (era, hl) => {
-    if (hl) return '#a050ff';
-    if (era === 'triassic')  return '#50dc64';
-    if (era === 'jurassic')  return '#5080ff';
-    return '#ff6050';
-  };
-
-  const rowsCont = document.getElementById('tl-rows');
-  rowsCont.innerHTML = '';
-  [
-    ...DINOS.map(d => ({name:d.fullName, short:d.name, start:d.startMa, end:d.endMa, era:d.era, id:d.id, human:false})),
-    {name:'Homo sapiens', short:'Humans', start:0.3, end:0, era:'human', id:'human', human:true}
-  ].forEach(item => {
-    const isHL = currentDino && item.id === currentDino.id;
-    const l=pn(item.start), r=pn(item.end), w=Math.max(r-l, 0.4);
-    const col = item.human ? '#6080ff' : eraCol(item.era, isHL);
-
-    const row = document.createElement('div');
-    row.className = 'tl-row' + (isHL ? ' hl' : '');
-    const lbl = document.createElement('div');
-    lbl.className = 'tl-row-lbl';
-    lbl.textContent = item.short;
+  const eraCol=(era,hl)=>{if(hl)return'#a050ff';if(era==='triassic')return'#50dc64';if(era==='jurassic')return'#5080ff';return'#ff6050';};
+  const rowsCont=document.getElementById('tl-rows');rowsCont.innerHTML='';
+  [...DINOS.map(d=>({name:d.fullName,short:d.name,start:d.startMa,end:d.endMa,era:d.era,id:d.id,human:false})),
+   {name:'Homo sapiens',short:'Humans',start:0.3,end:0,era:'human',id:'human',human:true}
+  ].forEach(item=>{
+    const isHL=currentDino&&item.id===currentDino.id;
+    const l=pn(item.start),r=pn(item.end),w=Math.max(r-l,0.4);
+    const col=item.human?'#6080ff':eraCol(item.era,isHL);
+    const row=document.createElement('div');row.className='tl-row'+(isHL?' hl':'');
+    const lbl=document.createElement('div');lbl.className='tl-row-lbl';lbl.textContent=item.short;
     row.appendChild(lbl);
-
-    const track = document.createElement('div');
-    track.className = 'tl-track';
-    const bar = document.createElement('div');
-    bar.className = 'tl-bar-item';
-    bar.style.cssText = `left:${l}%;width:${w}%;background:${col};color:rgba(255,255,255,${isHL?1:0.8});box-shadow:0 0 ${isHL?14:4}px ${col}88;`;
-    if (w > 5) bar.textContent = `${item.start}–${item.end} Ma`;
+    const track=document.createElement('div');track.className='tl-track';
+    const bar=document.createElement('div');bar.className='tl-bar-item';
+    bar.style.cssText=`left:${l}%;width:${w}%;background:${col};color:rgba(255,255,255,${isHL?1:0.8});box-shadow:0 0 ${isHL?14:4}px ${col}88;`;
+    if(w>5)bar.textContent=`${item.start}–${item.end} Ma`;
     track.appendChild(bar);
-    if (isHL) {
-      const b = document.createElement('div');
-      b.className = 'tl-hl-badge';
-      b.textContent = '◀ ' + item.short;
-      track.appendChild(b);
-    }
-    row.appendChild(track);
-    rowsCont.appendChild(row);
+    if(isHL){const b=document.createElement('div');b.className='tl-hl-badge';b.textContent='◀ '+item.short;track.appendChild(b);}
+    row.appendChild(track);rowsCont.appendChild(row);
   });
   showPage('timeline-view');
 }
 
-/* =============================================================
-   BOOT
-   ============================================================= */
-renderGrid();
-showPage('grid');
+renderGrid();showPage('grid');
 </script>
 </body>
 </html>
