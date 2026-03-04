@@ -17,6 +17,16 @@ File size: Keep under 500KB for fast loading
 What it shows: The full dinosaur body, ideally with some background/habitat. Think "hero shot" — the whole animal visible.
 Scene Images (images/scenes/)
 
+
+Image Specifications skeleton Images (images/skeleton/)
+Create a [trex] real life skeleton image
+Size:  900x600 px (landscape)
+File Type: JPG
+File size: Keep under 500KB for fast loading
+What it shows: The full dinosaur skeleton in a museum background
+Scene Images (images/skeleton/)
+
+
 Size: 900 × 600px (landscape works best, portrait is fine too)
 Format: JPG
 File size: Keep under 500KB
